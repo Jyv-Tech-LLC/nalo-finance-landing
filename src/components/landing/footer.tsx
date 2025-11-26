@@ -16,6 +16,13 @@ const footerLinks = {
     { label: "Financial Guide", href: "/features/financial-guide" },
     { label: "Income Streams", href: "/features/income-streams" },
   ],
+  freeTools: [
+    { label: "All Free Tools", href: "/tools" },
+    { label: "PIT Calculator", href: "/tools/pit-calculator" },
+    { label: "CIT Calculator", href: "/tools/cit-calculator" },
+    { label: "Crypto Tax Calculator", href: "/tools/crypto-calculator" },
+    { label: "WHT Calculator", href: "/tools/wht-calculator" },
+  ],
   company: [
     { label: "About Us", href: "/about" },
     { label: "Contact", href: "/contact" },
@@ -36,7 +43,7 @@ export function Footer() {
     <footer className="bg-card border-t-4 border-border">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 md:gap-12 mb-12">
           {/* Brand Column */}
           <div className="lg:col-span-2 space-y-4">
             <Link href="/" className="inline-flex items-center">
@@ -90,6 +97,25 @@ export function Footer() {
             </h3>
             <ul className="space-y-3">
               {footerLinks.features.map((link, index) => (
+                <li key={index}>
+                  <Link
+                    href={link.href}
+                    className="text-sm font-bold text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Free Tools Links */}
+          <div>
+            <h3 className="text-sm font-black uppercase tracking-wide mb-4 border-b-2 border-primary pb-2 text-primary">
+              Free Tools
+            </h3>
+            <ul className="space-y-3">
+              {footerLinks.freeTools.map((link, index) => (
                 <li key={index}>
                   <Link
                     href={link.href}

@@ -10,8 +10,10 @@ import { TestimonialsSection } from "@/components/landing/testimonials-section";
 import { MobileAppsSection } from "@/components/landing/mobile-apps-section";
 import { FaqSection } from "@/components/landing/faq-section";
 import { FinalCta } from "@/components/landing/cta-section";
+import { getPlans } from "@/lib/pricing";
 
-export default function LandingPage() {
+export default async function LandingPage() {
+  const { plans } = await getPlans();
   return (
     <>
       {/* Hero Section */}
@@ -36,7 +38,7 @@ export default function LandingPage() {
       <HowItWorks />
 
       {/* Pricing */}
-      <PricingSection />
+      <PricingSection plans={plans} />
 
       {/* Testimonials */}
       <TestimonialsSection />

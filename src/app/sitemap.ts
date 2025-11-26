@@ -73,6 +73,40 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
+  // Free Tools pages (high priority for SEO)
+  const toolsPages: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/tools`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/tools/pit-calculator`,
+      lastModified: currentDate,
+      changeFrequency: "monthly",
+      priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/tools/cit-calculator`,
+      lastModified: currentDate,
+      changeFrequency: "monthly",
+      priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/tools/crypto-calculator`,
+      lastModified: currentDate,
+      changeFrequency: "monthly",
+      priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/tools/wht-calculator`,
+      lastModified: currentDate,
+      changeFrequency: "monthly",
+      priority: 0.95,
+    },
+  ];
+
   // Legal pages
   const legalPages: MetadataRoute.Sitemap = [
     {
@@ -134,6 +168,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     return [
       ...mainPages,
       ...featurePages,
+      ...toolsPages,
       ...legalPages,
       ...blogPages,
       ...postPages,
@@ -143,6 +178,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   } catch (error) {
     // If blog API fails, return sitemap without blog content
     console.error("Failed to fetch blog content for sitemap:", error);
-    return [...mainPages, ...featurePages, ...legalPages, ...blogPages];
+    return [...mainPages, ...featurePages, ...toolsPages, ...legalPages, ...blogPages];
   }
 }

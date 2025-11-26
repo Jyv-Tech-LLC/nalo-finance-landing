@@ -164,6 +164,13 @@ export function Navbar() {
             </div>
 
             <Link
+              href="/tools"
+              className="px-4 py-2 text-sm font-black uppercase hover:text-primary hover:bg-primary/5 transition-all duration-200 flex items-center gap-1"
+            >
+              <Sparkles className="h-3 w-3" strokeWidth={3} />
+              Free Tools
+            </Link>
+            <Link
               href="/pricing"
               className="px-4 py-2 text-sm font-black uppercase hover:text-primary hover:bg-primary/5 transition-all duration-200"
             >
@@ -256,6 +263,14 @@ export function Navbar() {
 
             {/* Other Links */}
             <div className="space-y-1 mb-4">
+              <Link
+                href="/tools"
+                className="flex items-center gap-2 px-4 py-3 text-sm font-black uppercase hover:bg-primary/5 hover:text-primary transition-all"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <Sparkles className="h-4 w-4 text-primary" strokeWidth={3} />
+                Free Tools
+              </Link>
               <Link
                 href="/pricing"
                 className="block px-4 py-3 text-sm font-black uppercase hover:bg-primary/5 hover:text-primary transition-all"

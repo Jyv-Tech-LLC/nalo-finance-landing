@@ -93,7 +93,7 @@ export function Hero() {
           {/* Right Column - Hero Image/Demo */}
           <div className="relative lg:block">
             {/* Placeholder for hero image/screenshot */}
-            <div className="relative">
+            <div className="relative scale-90 md:scale-100 origin-top">
               {/* Main Card - Ajo Group Demo */}
               <div className="bg-card border-4 border-border p-6 shadow-2xl">
                 {/* Card Header */}

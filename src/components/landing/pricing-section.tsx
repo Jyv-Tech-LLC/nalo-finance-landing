@@ -1,51 +1,22 @@
 import Link from "next/link";
-import { Check, Star } from "lucide-react";
+import { Check, Star, ArrowRight, Wallet, Zap, Crown, Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { type Plan } from "@/lib/pricing";
 
-const plans = [
-  {
-    name: "Free",
-    price: "₦0",
-    period: "forever",
-    description: "Perfect for getting started with personal finance management",
-    features: [
-      "5 accounts",
-      "Basic budgeting",
-      "2 Ajo groups",
-      "Tax calculator (all 4)",
-      "3 income streams",
-      "Goal tracking",
-      "Transaction tracking",
-      "Mobile responsive",
-    ],
-    cta: "Get Started Free",
-    href: "https://app.nalofinance.com/auth/register",
-    highlighted: false,
-  },
-  {
-    name: "Premium",
-    price: "₦10,000",
-    period: "per month",
-    description: "For serious financial enthusiasts and power users",
-    features: [
-      "Unlimited accounts",
-      "Advanced budgeting",
-      "Unlimited Ajo groups",
-      "AI tax optimization",
-      "Unlimited income streams",
-      "Priority support",
-      "Advanced reports (PDF/CSV)",
-      "Receipt OCR scanning",
-      "Custom categories",
-      "Early access to new features",
-    ],
-    cta: "Start Premium Trial",
-    href: "https://app.nalofinance.com/auth/register?plan=premium",
-    highlighted: true,
-  },
-];
+const tierIcons: Record<string, typeof Wallet> = {
+  FREE: Wallet,
+  BASIC: Zap,
+  PREMIUM: Crown,
+  UNLIMITED: Rocket,
+};
 
-export function PricingSection() {
+interface PricingSectionProps {
+  plans: Plan[];
+}
+
+export function PricingSection({ plans }: PricingSectionProps) {
+  // Show only Free and Premium on homepage for simplicity
+  const displayPlans = plans.filter(p => p.tier === "FREE" || p.tier === "PREMIUM");
   return (
     <section className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -61,61 +32,90 @@ export function PricingSection() {
 
         {/* Pricing Cards */}
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {plans.map((plan, index) => (
-            <div
-              key={index}
-              className={`relative bg-card border-4 ${
-                plan.highlighted ? "border-primary" : "border-border"
-              } p-8 ${plan.highlighted ? "shadow-2xl scale-105" : ""}`}
-            >
-              {/* Popular Badge */}
-              {plan.highlighted && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-2 bg-primary border-4 border-background">
-                  <div className="flex items-center gap-2">
-                    <Star className="h-4 w-4 text-primary-foreground fill-current" strokeWidth={3} />
-                    <span className="text-xs font-black uppercase text-primary-foreground">Most Popular</span>
-                  </div>
-                </div>
-              )}
+          {displayPlans.map((plan, index) => {
+            const Icon = tierIcons[plan.tier] || Wallet;
+            const price = plan.pricing.ngn.formatted;
+            const period = plan.tier === "FREE" ? "forever" : `per ${plan.interval}`;
 
-              {/* Plan Header */}
-              <div className="mb-8">
-                <h3 className="text-2xl font-black uppercase tracking-tight mb-2">{plan.name}</h3>
-                <div className="flex items-baseline gap-2 mb-3">
-                  <span className="text-4xl md:text-5xl font-black">{plan.price}</span>
-                  <span className="text-sm font-bold text-muted-foreground uppercase">/{plan.period}</span>
-                </div>
-                <p className="text-sm font-bold text-muted-foreground">{plan.description}</p>
-              </div>
-
-              {/* Features List */}
-              <ul className="space-y-4 mb-8">
-                {plan.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-start gap-3">
-                    <div className="w-5 h-5 bg-success/10 border-2 border-success/20 flex items-center justify-center shrink-0 mt-0.5">
-                      <Check className="h-3 w-3 text-success" strokeWidth={3} />
+            return (
+              <div
+                key={plan.id}
+                className={`relative bg-card border-4 ${
+                  plan.highlighted ? "border-primary shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]" : "border-border"
+                } p-8`}
+              >
+                {/* Popular Badge */}
+                {plan.badge && (
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-2 bg-primary border-4 border-background">
+                    <div className="flex items-center gap-2">
+                      <Star className="h-4 w-4 text-primary-foreground fill-current" strokeWidth={3} />
+                      <span className="text-xs font-black uppercase text-primary-foreground">{plan.badge}</span>
                     </div>
-                    <span className="text-sm font-bold">{feature}</span>
-                  </li>
-                ))}
-              </ul>
+                  </div>
+                )}
 
-              {/* CTA */}
-              <Link href={plan.href} className="block">
-                <Button
-                  size="lg"
-                  variant={plan.highlighted ? "default" : "outline"}
-                  className={`w-full font-black text-base ${plan.highlighted ? "" : "border-2"}`}
-                >
-                  {plan.cta}
-                </Button>
-              </Link>
-            </div>
-          ))}
+                {/* Plan Header */}
+                <div className="mb-8">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className={`w-12 h-12 ${plan.highlighted ? "bg-primary" : "bg-muted"} flex items-center justify-center`}>
+                      <Icon className={`h-6 w-6 ${plan.highlighted ? "text-primary-foreground" : "text-foreground"}`} strokeWidth={3} />
+                    </div>
+                    <h3 className="text-2xl font-black uppercase tracking-tight">{plan.name}</h3>
+                  </div>
+                  <div className="flex items-baseline gap-2 mb-3">
+                    <span className="text-4xl md:text-5xl font-black">{price}</span>
+                    <span className="text-sm font-bold text-muted-foreground uppercase">/{period}</span>
+                  </div>
+                  <p className="text-sm font-bold text-muted-foreground">{plan.description}</p>
+                </div>
+
+                {/* Features List */}
+                <ul className="space-y-3 mb-8">
+                  {plan.features.slice(0, 8).map((feature, featureIndex) => (
+                    <li key={featureIndex} className="flex items-start gap-3">
+                      <div className="w-5 h-5 bg-success/10 border-2 border-success/20 flex items-center justify-center shrink-0 mt-0.5">
+                        <Check className="h-3 w-3 text-success" strokeWidth={3} />
+                      </div>
+                      <span className="text-sm font-bold">{feature}</span>
+                    </li>
+                  ))}
+                  {plan.features.length > 8 && (
+                    <li className="text-sm font-bold text-muted-foreground pl-8">
+                      + {plan.features.length - 8} more features
+                    </li>
+                  )}
+                </ul>
+
+                {/* CTA */}
+                <Link href={plan.ctaUrl} className="block">
+                  <Button
+                    size="lg"
+                    variant={plan.highlighted ? "default" : "outline"}
+                    className={`w-full font-black text-base py-6 h-auto ${
+                      plan.highlighted
+                        ? "bg-black text-white hover:bg-black/90 border-4 border-black shadow-[4px_4px_0px_0px_hsl(var(--primary))] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all"
+                        : "border-4 border-border hover:bg-muted"
+                    }`}
+                  >
+                    {plan.ctaText}
+                    {plan.highlighted && <ArrowRight className="ml-2 h-5 w-5" strokeWidth={3} />}
+                  </Button>
+                </Link>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* View All Plans Link */}
+        <div className="text-center mt-10">
+          <Link href="/pricing" className="inline-flex items-center gap-2 text-primary font-black text-sm hover:underline uppercase">
+            View All Plans & Compare Features
+            <ArrowRight className="h-4 w-4" strokeWidth={3} />
+          </Link>
         </div>
 
         {/* Below pricing note */}
-        <div className="text-center mt-12">
+        <div className="text-center mt-8">
           <p className="text-sm font-bold text-muted-foreground mb-2">
             All plans include bank-level security and data encryption
           </p>
