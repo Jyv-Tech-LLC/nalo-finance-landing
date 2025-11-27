@@ -78,7 +78,7 @@ export default function AboutPage() {
 
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-4 mb-12">
-                <Link href="https://app.nalofinance.com/auth/register">
+                <Link href="https://app.nalofinance.com/register">
                   <Button size="lg" className="w-full sm:w-auto font-black text-base px-8 border-2">
                     START FREE TODAY
                     <ChevronRight className="ml-2 h-5 w-5" strokeWidth={3} />
@@ -360,7 +360,7 @@ export default function AboutPage() {
               Start free today and see the difference.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="https://app.nalofinance.com/auth/register">
+              <Link href="https://app.nalofinance.com/register">
                 <Button
                   size="lg"
                   variant="outline"

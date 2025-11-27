@@ -82,7 +82,7 @@ export function HowItWorks() {
             Join 10,000+ Nigerians taking control of their finances
           </p>
           <a
-            href="https://app.nalofinance.com/auth/register"
+            href="https://app.nalofinance.com/register"
             className="inline-flex items-center justify-center px-8 py-4 bg-primary hover:bg-primary/90 text-primary-foreground font-black uppercase text-base transition-colors"
           >
             Get Started Free

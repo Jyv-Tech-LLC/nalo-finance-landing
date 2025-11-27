@@ -166,7 +166,7 @@ export function Footer() {
               </div>
             </div>
             <Link
-              href="https://app.nalofinance.com/auth/register"
+              href="https://app.nalofinance.com/register"
               className="px-6 py-3 bg-primary hover:bg-primary/90 text-primary-foreground font-black uppercase text-sm transition-colors"
             >
               Get Started Free

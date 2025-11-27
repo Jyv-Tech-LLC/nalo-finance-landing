@@ -410,7 +410,7 @@ export default function TermsPage() {
               Now that you understand the terms, join 10,000+ Nigerians taking control of their finances.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="https://app.nalofinance.com/auth/register">
+              <Link href="https://app.nalofinance.com/register">
                 <Button
                   size="lg"
                   variant="outline"

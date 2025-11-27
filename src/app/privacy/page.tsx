@@ -350,7 +350,7 @@ export default function PrivacyPage() {
               Start using Nalo with confidence. Your financial data is secure, private, and under your control.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="https://app.nalofinance.com/auth/register">
+              <Link href="https://app.nalofinance.com/register">
                 <Button
                   size="lg"
                   variant="outline"

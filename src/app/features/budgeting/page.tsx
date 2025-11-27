@@ -242,7 +242,7 @@ export default function BudgetingPage() {
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-                <Link href="https://app.nalofinance.com/auth/register">
+                <Link href="https://app.nalofinance.com/register">
                   <Button size="lg" className="font-black text-base px-8 group">
                     CREATE YOUR BUDGET FREE
                     <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" strokeWidth={3} />
@@ -523,7 +523,7 @@ export default function BudgetingPage() {
           description="Stop living paycheck to paycheck. Build a realistic budget, stick to it, and watch your savings grow automatically."
           primaryCta={{
             text: "CREATE FREE BUDGET NOW",
-            href: "https://app.nalofinance.com/auth/register",
+            href: "https://app.nalofinance.com/register",
           }}
           secondaryCta={{
             text: "SEE EXAMPLES",

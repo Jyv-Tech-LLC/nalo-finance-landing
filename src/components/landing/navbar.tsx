@@ -198,7 +198,7 @@ export function Navbar() {
 
           {/* Desktop Auth Buttons */}
           <div className="hidden lg:flex items-center gap-3">
-            <Link href="https://app.nalofinance.com/auth/login">
+            <Link href="https://app.nalofinance.com/login">
               <Button
                 variant="ghost"
                 className="font-black uppercase text-sm hover:bg-transparent hover:text-primary"
@@ -206,7 +206,7 @@ export function Navbar() {
                 Sign In
               </Button>
             </Link>
-            <Link href="https://app.nalofinance.com/auth/register">
+            <Link href="https://app.nalofinance.com/register">
               <Button className="font-black uppercase text-sm border-2 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all">
                 Start Free
                 <ArrowRight className="ml-2 h-4 w-4" strokeWidth={3} />
@@ -303,12 +303,12 @@ export function Navbar() {
 
             {/* Auth Buttons */}
             <div className="flex gap-3 pt-4 border-t-2 border-border">
-              <Link href="https://app.nalofinance.com/auth/login" className="flex-1">
+              <Link href="https://app.nalofinance.com/login" className="flex-1">
                 <Button variant="outline" className="w-full font-black uppercase border-2">
                   Sign In
                 </Button>
               </Link>
-              <Link href="https://app.nalofinance.com/auth/register" className="flex-1">
+              <Link href="https://app.nalofinance.com/register" className="flex-1">
                 <Button className="w-full font-black uppercase border-2 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)]">
                   Start Free
                 </Button>

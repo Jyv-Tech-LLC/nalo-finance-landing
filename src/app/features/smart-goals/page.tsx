@@ -124,7 +124,7 @@ export default function SmartGoalsPage() {
 
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-4 mb-12">
-                <Link href="https://app.nalofinance.com/auth/register">
+                <Link href="https://app.nalofinance.com/register">
                   <Button size="lg" className="w-full sm:w-auto font-black text-base px-8 border-2">
                     START YOUR FIRST GOAL
                     <ChevronRight className="ml-2 h-5 w-5" strokeWidth={3} />
@@ -604,7 +604,7 @@ export default function SmartGoalsPage() {
         description="Join thousands of Nigerians who are turning dreams into reality. Start your first goal free. No credit card required."
         primaryCta={{
           text: "START YOUR FIRST GOAL",
-          href: "https://app.nalofinance.com/auth/register",
+          href: "https://app.nalofinance.com/register",
         }}
         secondaryCta={{
           text: "VIEW PRICING",

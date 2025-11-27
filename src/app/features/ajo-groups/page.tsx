@@ -112,7 +112,7 @@ export default function AjoGroupsPage() {
 
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-4 mb-12">
-                <Link href="https://app.nalofinance.com/auth/register">
+                <Link href="https://app.nalofinance.com/register">
                   <Button size="lg" className="w-full sm:w-auto font-black text-base px-8 border-2">
                     START YOUR AJO FREE
                     <ArrowRight className="ml-2 h-5 w-5" strokeWidth={3} />
@@ -790,7 +790,7 @@ export default function AjoGroupsPage() {
         description="No more WhatsApp chaos. No more notebook tracking. No more 'trust me bro.' Just transparent, automated Ajo that actually works."
         primaryCta={{
           text: "CREATE YOUR AJO FREE",
-          href: "https://app.nalofinance.com/auth/register",
+          href: "https://app.nalofinance.com/register",
         }}
         secondaryCta={{
           text: "VIEW PRICING",

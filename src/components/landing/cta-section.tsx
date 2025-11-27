@@ -214,7 +214,7 @@ export function FinalCta() {
       description="Join thousands of Nigerians managing their money smarter. No credit card required, cancel anytime."
       primaryCta={{
         text: "Get Started Free",
-        href: "https://app.nalofinance.com/auth/register",
+        href: "https://app.nalofinance.com/register",
       }}
       secondaryCta={{
         text: "See Pricing",
@@ -232,7 +232,7 @@ export function MidPageCta() {
       description="Get real-time insights into your finances with AI-powered recommendations and automated tracking."
       primaryCta={{
         text: "Try It Free",
-        href: "https://app.nalofinance.com/auth/register",
+        href: "https://app.nalofinance.com/register",
       }}
       secondaryCta={{
         text: "Watch Demo",

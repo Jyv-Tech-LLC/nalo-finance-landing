@@ -390,7 +390,7 @@ export default function ContactPage() {
             <p className="text-lg md:text-xl font-bold mb-8 opacity-90">
               Join 10,000+ Nigerians already using Nalo. Start free today.
             </p>
-            <Link href="https://app.nalofinance.com/auth/register">
+            <Link href="https://app.nalofinance.com/register">
               <Button
                 size="lg"
                 variant="outline"

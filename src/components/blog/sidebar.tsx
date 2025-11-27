@@ -115,7 +115,7 @@ export function Sidebar({
           Take control of your finances with Nalo Finance - Nigeria&apos;s all-in-one personal finance platform.
         </p>
         <Link
-          href="https://app.nalofinance.com/auth/register"
+          href="https://app.nalofinance.com/register"
           className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground font-black uppercase text-sm border-2 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all"
         >
           Get Started Free

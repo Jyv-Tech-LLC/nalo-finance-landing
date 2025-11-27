@@ -250,7 +250,7 @@ export default function TaxCenterPage() {
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-                <Link href="https://app.nalofinance.com/auth/register">
+                <Link href="https://app.nalofinance.com/register">
                   <Button size="lg" className="font-black text-base px-8 group">
                     CALCULATE YOUR 2026 TAX FREE
                     <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" strokeWidth={3} />
@@ -477,7 +477,7 @@ export default function TaxCenterPage() {
                     </div>
 
                     {/* CTA */}
-                    <Link href="https://app.nalofinance.com/auth/register">
+                    <Link href="https://app.nalofinance.com/register">
                       <Button size="lg" variant="outline" className="w-full font-black text-sm border-2">
                         USE {calc.name.split(' ')[0].toUpperCase()} CALCULATOR
                       </Button>
@@ -578,7 +578,7 @@ export default function TaxCenterPage() {
           description="Calculate accurately, optimize legally, file confidently. Nalo's AI-powered Tax Center handles PIT, CIT, Crypto, and WHT with precision."
           primaryCta={{
             text: "START CALCULATING FREE",
-            href: "https://app.nalofinance.com/auth/register",
+            href: "https://app.nalofinance.com/register",
           }}
           secondaryCta={{
             text: "EXPLORE CALCULATORS",

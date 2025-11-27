@@ -247,7 +247,7 @@ export default function FinancialGuidePage() {
 
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-4 mb-12">
-                <Link href="https://app.nalofinance.com/auth/register">
+                <Link href="https://app.nalofinance.com/register">
                   <Button size="lg" className="w-full sm:w-auto font-black text-base px-8 border-2 bg-black text-white hover:bg-black/90">
                     TRY ORACLE FREE
                     <ChevronRight className="ml-2 h-5 w-5" strokeWidth={3} />
@@ -672,7 +672,7 @@ export default function FinancialGuidePage() {
         description="Join thousands of Nigerians who use Oracle AI to make better money decisions. 10 free questions per month. No credit card required."
         primaryCta={{
           text: "TRY ORACLE FREE",
-          href: "https://app.nalofinance.com/auth/register",
+          href: "https://app.nalofinance.com/register",
         }}
         secondaryCta={{
           text: "VIEW PRICING",

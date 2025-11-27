@@ -134,7 +134,7 @@ export default function IncomeStreamsPage() {
 
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-4 mb-12">
-                <Link href="https://app.nalofinance.com/auth/register">
+                <Link href="https://app.nalofinance.com/register">
                   <Button size="lg" className="w-full sm:w-auto font-black text-base px-8 border-2">
                     START TRACKING FREE
                     <ChevronRight className="ml-2 h-5 w-5" strokeWidth={3} />
@@ -792,7 +792,7 @@ export default function IncomeStreamsPage() {
         description="Join thousands of multi-income Nigerians who use data to maximize their earnings. Track up to 3 streams free. No credit card required."
         primaryCta={{
           text: "START TRACKING FREE",
-          href: "https://app.nalofinance.com/auth/register",
+          href: "https://app.nalofinance.com/register",
         }}
         secondaryCta={{
           text: "VIEW PRICING",
