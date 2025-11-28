@@ -149,11 +149,11 @@ export function Navbar() {
                 aria-label="Features submenu"
               >
                 <div className="p-2">
-                  {features.map((feature) => {
+                  {features.map((feature, index) => {
                     const Icon = feature.icon;
                     return (
                       <Link
-                        key={feature.href}
+                        key={`${feature.name}-${index}`}
                         href={feature.href}
                         className="flex items-start gap-3 p-3 hover:bg-muted/50 transition-colors group/item"
                       >
@@ -270,11 +270,11 @@ export function Navbar() {
             <div className="mb-4">
               <p className="text-xs font-black uppercase text-muted-foreground mb-3 px-2">Features</p>
               <div className="grid grid-cols-2 gap-2">
-                {features.map((feature) => {
+                {features.map((feature, index) => {
                   const Icon = feature.icon;
                   return (
                     <Link
-                      key={feature.href}
+                      key={`mobile-${feature.name}-${index}`}
                       href={feature.href}
                       className="flex items-center gap-2 p-3 border-2 border-border hover:border-primary hover:bg-primary/5 transition-all"
                       onClick={() => setMobileMenuOpen(false)}
