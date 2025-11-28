@@ -115,21 +115,29 @@ export function BankConnectSection() {
               </div>
             </div>
 
-            {/* Sample Bank Cards */}
+            {/* Bank Logos */}
             <div className="grid grid-cols-3 gap-3">
               {[
-                { name: "GTBank", color: "bg-orange-500" },
-                { name: "Access", color: "bg-orange-600" },
-                { name: "Zenith", color: "bg-red-600" },
-                { name: "UBA", color: "bg-red-700" },
-                { name: "First Bank", color: "bg-blue-800" },
-                { name: "+20 More", color: "bg-white/20" },
+                { name: "GTBank", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Guaranty_Trust_Bank_logo.svg/200px-Guaranty_Trust_Bank_logo.svg.png", bg: "bg-white" },
+                { name: "Access Bank", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Access-bank-logo.png/200px-Access-bank-logo.png", bg: "bg-white" },
+                { name: "Zenith Bank", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/8/81/Zenith_Bank_logo.png/200px-Zenith_Bank_logo.png", bg: "bg-white" },
+                { name: "UBA", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/4/4b/United_Bank_for_Africa_logo.svg/200px-United_Bank_for_Africa_logo.svg.png", bg: "bg-white" },
+                { name: "First Bank", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/e/eb/First_Bank_of_Nigeria_logo.svg/200px-First_Bank_of_Nigeria_logo.svg.png", bg: "bg-white" },
+                { name: "+20 More", logo: null, bg: "bg-white/20" },
               ].map((bank, index) => (
                 <div
                   key={index}
-                  className={`${bank.color} p-3 border-2 border-white/30 text-center`}
+                  className={`${bank.bg} p-3 border-2 border-white/30 flex items-center justify-center h-14`}
                 >
-                  <span className="text-xs font-black uppercase">{bank.name}</span>
+                  {bank.logo ? (
+                    <img
+                      src={bank.logo}
+                      alt={bank.name}
+                      className="h-6 w-auto object-contain"
+                    />
+                  ) : (
+                    <span className="text-xs font-black uppercase">{bank.name}</span>
+                  )}
                 </div>
               ))}
             </div>
