@@ -146,7 +146,7 @@ export function Hero() {
 
               {/* Floating Badge */}
               <div className="absolute -top-4 -right-4 px-4 py-2 bg-primary border-4 border-background shadow-xl">
-                <p className="text-sm font-black uppercase whitespace-nowrap">100% Transparent</p>
+                <p className="text-sm font-black uppercase whitespace-nowrap text-primary-foreground">100% Transparent</p>
               </div>
 
               {/* Floating Badge 2 */}
