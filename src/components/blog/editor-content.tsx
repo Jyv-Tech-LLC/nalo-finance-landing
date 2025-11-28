@@ -105,14 +105,35 @@ function BlockRenderer({ block }: { block: EditorJSBlock }) {
 // Paragraph block
 function ParagraphBlock({ data }: { data: { text: string } }) {
   if (!data.text?.trim()) return null;
-  return <p dangerouslySetInnerHTML={{ __html: data.text }} />;
+  return (
+    <p
+      className="mb-4 leading-relaxed text-muted-foreground"
+      dangerouslySetInnerHTML={{ __html: data.text }}
+    />
+  );
 }
 
 // Header block (h1-h6)
 function HeaderBlock({ data }: { data: { text: string; level: number } }) {
   const level = Math.min(Math.max(data.level || 2, 1), 6);
   const Tag = `h${level}` as keyof React.JSX.IntrinsicElements;
-  return <Tag dangerouslySetInnerHTML={{ __html: data.text }} />;
+
+  // Styling based on header level
+  const styles: Record<number, string> = {
+    1: "text-3xl md:text-4xl mt-12 mb-6 font-black uppercase tracking-tight",
+    2: "text-2xl md:text-3xl mt-12 mb-6 font-black uppercase tracking-tight",
+    3: "text-xl md:text-2xl mt-10 mb-4 font-black uppercase tracking-tight",
+    4: "text-lg md:text-xl mt-8 mb-4 font-bold",
+    5: "text-base md:text-lg mt-6 mb-3 font-bold",
+    6: "text-sm md:text-base mt-4 mb-2 font-bold",
+  };
+
+  return (
+    <Tag
+      className={styles[level]}
+      dangerouslySetInnerHTML={{ __html: data.text }}
+    />
+  );
 }
 
 // List block with nested item support
@@ -146,7 +167,7 @@ function ListBlock({
   };
 
   if (!data.items?.length) return null;
-  return renderItems(data.items);
+  return <div className="my-6">{renderItems(data.items)}</div>;
 }
 
 // Image block
