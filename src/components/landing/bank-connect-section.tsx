@@ -116,27 +116,29 @@ export function BankConnectSection() {
             </div>
 
             {/* Bank Logos */}
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-3 gap-4">
               {[
-                { name: "GTBank", logo: "/bank-logos/GTbank.svg.png", bg: "bg-white" },
-                { name: "Access Bank", logo: "/bank-logos/access-bank.jpg", bg: "bg-white" },
-                { name: "Zenith Bank", logo: "/bank-logos/zenith-bank.png.webp", bg: "bg-white" },
-                { name: "UBA", logo: "/bank-logos/uba.png", bg: "bg-white" },
-                { name: "First Bank", logo: "/bank-logos/firstbank.png", bg: "bg-white" },
-                { name: "+20 More", logo: null, bg: "bg-white/20" },
+                { name: "GTBank", logo: "/bank-logos/GTbank.svg.png" },
+                { name: "Access Bank", logo: "/bank-logos/access-bank.jpg" },
+                { name: "Zenith Bank", logo: "/bank-logos/zenith-bank.png.webp" },
+                { name: "UBA", logo: "/bank-logos/uba.png" },
+                { name: "First Bank", logo: "/bank-logos/firstbank.png" },
+                { name: "+20 More", logo: null },
               ].map((bank, index) => (
                 <div
                   key={index}
-                  className={`${bank.bg} p-3 border-2 border-white/30 flex items-center justify-center h-14`}
+                  className="bg-white rounded-lg p-4 flex items-center justify-center h-16 shadow-lg hover:shadow-xl transition-shadow"
                 >
                   {bank.logo ? (
                     <img
                       src={bank.logo}
                       alt={bank.name}
-                      className="h-8 w-auto object-contain"
+                      className="max-h-10 w-auto object-contain"
                     />
                   ) : (
-                    <span className="text-xs font-black uppercase">{bank.name}</span>
+                    <span className="text-sm font-black uppercase text-primary">
+                      {bank.name}
+                    </span>
                   )}
                 </div>
               ))}
