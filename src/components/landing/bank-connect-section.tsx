@@ -118,11 +118,11 @@ export function BankConnectSection() {
             {/* Bank Logos */}
             <div className="grid grid-cols-3 gap-4">
               {[
-                { name: "GTBank", logo: "/bank-logos/GTbank.svg.png", size: "h-8" },
-                { name: "Access Bank", logo: "/bank-logos/access-bank.jpg", size: "h-12" },
+                { name: "GTBank", logo: "/bank-logos/GTbank.svg.png", size: "h-10" },
+                { name: "Access Bank", logo: "/bank-logos/access-bank.jpg", size: "h-20" },
                 { name: "Zenith Bank", logo: "/bank-logos/zenith-bank.png.webp", size: "h-10" },
-                { name: "UBA", logo: "/bank-logos/uba.png", size: "h-12" },
-                { name: "First Bank", logo: "/bank-logos/firstbank.png", size: "h-10" },
+                { name: "UBA", logo: "/bank-logos/uba.png", size: "h-20" },
+                { name: "First Bank", logo: "/bank-logos/firstbank.png", size: "h-12" },
                 { name: "+20 More", logo: null, size: "" },
               ].map((bank, index) => (
                 <div

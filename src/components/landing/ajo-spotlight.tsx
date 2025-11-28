@@ -12,28 +12,36 @@ import {
   Bell,
   Send,
   Globe,
+  X,
+  Check,
+  Sparkles,
 } from "lucide-react";
 
 export function AjoSpotlight() {
   return (
-    <section className="py-16 md:py-24 bg-muted/30">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-16 md:py-24 bg-gradient-to-br from-background via-background to-success/5 relative overflow-hidden">
+      {/* Background decorations */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-success/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+
+      <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Content */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+        <div className="grid lg:grid-cols-2 gap-12 items-start mb-16">
           {/* Left Column - Content */}
           <div className="space-y-8">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-success/10 border-2 border-success/20">
-              <Users className="h-4 w-4 text-success" strokeWidth={3} />
-              <span className="text-xs font-black uppercase tracking-wide text-success">
-                Top Feature
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-success text-success-foreground">
+              <Sparkles className="h-4 w-4" strokeWidth={3} />
+              <span className="text-xs font-black uppercase tracking-wide">
+                Most Popular Feature
               </span>
             </div>
 
             {/* Headline */}
             <div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight leading-tight mb-4">
-                Your Ajo Group Deserves Better Than WhatsApp
+                Your Ajo Group Deserves
+                <span className="text-success"> Better</span>
               </h2>
               <p className="text-lg md:text-xl font-bold text-muted-foreground">
                 Bring the traditional Ajo into the digital age with trust scores, transparent tracking,
@@ -42,7 +50,7 @@ export function AjoSpotlight() {
             </div>
 
             {/* Features List */}
-            <div className="space-y-4">
+            <div className="space-y-3">
               {[
                 {
                   icon: Shield,
@@ -67,9 +75,9 @@ export function AjoSpotlight() {
               ].map((feature, index) => {
                 const Icon = feature.icon;
                 return (
-                  <div key={index} className="flex gap-4 items-start p-4 bg-background border-l-4 border-success">
-                    <div className="w-10 h-10 bg-success/10 border-2 border-success/20 flex items-center justify-center shrink-0">
-                      <Icon className="h-5 w-5 text-success" strokeWidth={3} />
+                  <div key={index} className="flex gap-4 items-start p-4 bg-card border-2 border-border hover:border-success transition-colors group">
+                    <div className="w-12 h-12 bg-success/10 border-2 border-success flex items-center justify-center shrink-0 group-hover:bg-success group-hover:text-success-foreground transition-colors">
+                      <Icon className="h-6 w-6 text-success group-hover:text-success-foreground" strokeWidth={2.5} />
                     </div>
                     <div>
                       <h3 className="font-black uppercase text-sm mb-1">{feature.title}</h3>
@@ -81,79 +89,96 @@ export function AjoSpotlight() {
             </div>
 
             {/* CTA */}
-            <Link href="/features/ajo-groups">
-              <Button size="lg" variant="outline" className="font-black text-base px-8 border-2 group">
-                LEARN MORE ABOUT AJO GROUPS
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" strokeWidth={3} />
-              </Button>
-            </Link>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link href="/features/ajo-groups">
+                <Button size="lg" className="font-black text-base px-8 group bg-success hover:bg-success/90 text-success-foreground">
+                  EXPLORE AJO GROUPS
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" strokeWidth={3} />
+                </Button>
+              </Link>
+              <Link href="https://app.nalofinance.com/register">
+                <Button size="lg" variant="outline" className="font-black text-base px-8 border-2">
+                  START YOUR GROUP
+                </Button>
+              </Link>
+            </div>
           </div>
 
           {/* Right Column - Visual Comparison */}
-          <div className="space-y-6">
-            {/* Before Card - Traditional Ajo */}
-            <div className="p-6 bg-destructive/5 border-2 border-destructive/30">
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-2 h-2 bg-destructive" />
-                <p className="text-sm font-black uppercase text-destructive">Traditional Ajo</p>
+          <div className="space-y-4">
+            {/* Before/After Comparison */}
+            <div className="grid grid-cols-1 gap-4">
+              {/* Before Card - Traditional Ajo */}
+              <div className="p-6 bg-card border-2 border-destructive/50 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-20 h-20 bg-destructive/10 rounded-bl-full" />
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="w-10 h-10 bg-destructive/10 border-2 border-destructive/30 flex items-center justify-center">
+                    <X className="h-5 w-5 text-destructive" strokeWidth={3} />
+                  </div>
+                  <div>
+                    <p className="text-sm font-black uppercase text-destructive">Traditional Ajo</p>
+                    <p className="text-xs font-bold text-muted-foreground">The old way</p>
+                  </div>
+                </div>
+                <ul className="space-y-2">
+                  {[
+                    "WhatsApp group confusion",
+                    "Manual tracking in notebooks",
+                    "Trust based on rumors",
+                    "Disputes with no records",
+                    "No way to find new groups",
+                  ].map((item, index) => (
+                    <li key={index} className="flex items-center gap-3 p-2 bg-destructive/5 border-l-2 border-destructive/30">
+                      <X className="h-4 w-4 text-destructive shrink-0" strokeWidth={3} />
+                      <span className="text-sm font-bold text-muted-foreground">{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <ul className="space-y-3">
-                {[
-                  "WhatsApp group confusion",
-                  "Manual tracking in notebooks",
-                  "Trust based on rumors",
-                  "Disputes with no records",
-                  "No way to find new groups",
-                ].map((item, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <span className="text-destructive font-black">✗</span>
-                    <span className="text-sm font-bold text-muted-foreground">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
 
-            {/* After Card - Digital Ajo */}
-            <div className="p-6 bg-success/5 border-2 border-success">
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-2 h-2 bg-success" />
-                <p className="text-sm font-black uppercase text-success">Nalo Ajo Groups</p>
+              {/* After Card - Digital Ajo */}
+              <div className="p-6 bg-card border-2 border-success relative overflow-hidden shadow-lg shadow-success/10">
+                <div className="absolute top-0 right-0 w-20 h-20 bg-success/10 rounded-bl-full" />
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="w-10 h-10 bg-success flex items-center justify-center">
+                    <Check className="h-5 w-5 text-success-foreground" strokeWidth={3} />
+                  </div>
+                  <div>
+                    <p className="text-sm font-black uppercase text-success">Nalo Ajo Groups</p>
+                    <p className="text-xs font-bold text-muted-foreground">The smart way</p>
+                  </div>
+                </div>
+                <ul className="space-y-2">
+                  {[
+                    "Organized dashboard for everyone",
+                    "Automatic payment tracking & reminders",
+                    "Quantifiable trust scores (0-100)",
+                    "Dispute resolution with evidence",
+                    "Discover & join public groups",
+                    "Shareable invite links",
+                    "Telegram & WhatsApp alerts",
+                  ].map((item, index) => (
+                    <li key={index} className="flex items-center gap-3 p-2 bg-success/5 border-l-2 border-success">
+                      <Check className="h-4 w-4 text-success shrink-0" strokeWidth={3} />
+                      <span className="text-sm font-bold">{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <ul className="space-y-3">
-                {[
-                  "Organized dashboard for everyone",
-                  "Automatic payment tracking & reminders",
-                  "Quantifiable trust scores (0-100)",
-                  "Dispute resolution with evidence",
-                  "Discover & join public groups",
-                  "Shareable invite links",
-                  "Telegram & WhatsApp alerts",
-                ].map((item, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <span className="text-success font-black">✓</span>
-                    <span className="text-sm font-bold">{item}</span>
-                  </li>
-                ))}
-              </ul>
             </div>
 
             {/* Stats */}
-            <div className="p-6 bg-primary/5 border-l-4 border-primary">
-              <p className="text-sm font-bold text-muted-foreground uppercase mb-3">Success Metrics</p>
-              <div className="grid grid-cols-3 gap-4">
-                <div>
-                  <p className="text-2xl font-black text-primary">98%</p>
-                  <p className="text-xs font-bold text-muted-foreground uppercase">On-time Rate</p>
+            <div className="grid grid-cols-3 gap-4">
+              {[
+                { value: "98%", label: "On-Time Rate", color: "text-success" },
+                { value: "500+", label: "Active Groups", color: "text-primary" },
+                { value: "₦0", label: "Lost to Defaults", color: "text-success" },
+              ].map((stat, index) => (
+                <div key={index} className="p-4 bg-card border-2 border-border text-center hover:border-primary transition-colors">
+                  <p className={`text-2xl md:text-3xl font-black ${stat.color}`}>{stat.value}</p>
+                  <p className="text-xs font-bold text-muted-foreground uppercase mt-1">{stat.label}</p>
                 </div>
-                <div>
-                  <p className="text-2xl font-black text-primary">500+</p>
-                  <p className="text-xs font-bold text-muted-foreground uppercase">Active Groups</p>
-                </div>
-                <div>
-                  <p className="text-2xl font-black text-primary">0</p>
-                  <p className="text-xs font-bold text-muted-foreground uppercase">Defaults</p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
