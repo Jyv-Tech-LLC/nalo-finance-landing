@@ -118,22 +118,22 @@ export function BankConnectSection() {
             {/* Bank Logos */}
             <div className="grid grid-cols-3 gap-4">
               {[
-                { name: "GTBank", logo: "/bank-logos/GTbank.svg.png" },
-                { name: "Access Bank", logo: "/bank-logos/access-bank.jpg" },
-                { name: "Zenith Bank", logo: "/bank-logos/zenith-bank.png.webp" },
-                { name: "UBA", logo: "/bank-logos/uba.png" },
-                { name: "First Bank", logo: "/bank-logos/firstbank.png" },
-                { name: "+20 More", logo: null },
+                { name: "GTBank", logo: "/bank-logos/GTbank.svg.png", size: "h-8" },
+                { name: "Access Bank", logo: "/bank-logos/access-bank.jpg", size: "h-12" },
+                { name: "Zenith Bank", logo: "/bank-logos/zenith-bank.png.webp", size: "h-10" },
+                { name: "UBA", logo: "/bank-logos/uba.png", size: "h-12" },
+                { name: "First Bank", logo: "/bank-logos/firstbank.png", size: "h-10" },
+                { name: "+20 More", logo: null, size: "" },
               ].map((bank, index) => (
                 <div
                   key={index}
-                  className="bg-white rounded-lg p-4 flex items-center justify-center h-16 shadow-lg hover:shadow-xl transition-shadow"
+                  className="bg-white rounded-lg p-3 flex items-center justify-center h-20 shadow-lg hover:shadow-xl hover:scale-105 transition-all"
                 >
                   {bank.logo ? (
                     <img
                       src={bank.logo}
                       alt={bank.name}
-                      className="max-h-10 w-auto object-contain"
+                      className={`${bank.size} w-auto object-contain`}
                     />
                   ) : (
                     <span className="text-sm font-black uppercase text-primary">
