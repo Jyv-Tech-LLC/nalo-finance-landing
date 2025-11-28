@@ -172,7 +172,7 @@ export function Footer() {
               href="https://app.nalofinance.com/register"
               className="px-6 py-3 bg-primary hover:bg-primary/90 text-primary-foreground font-black uppercase text-sm transition-colors"
             >
-              Get Started Free
+              Get Started
             </Link>
           </div>
         </div>

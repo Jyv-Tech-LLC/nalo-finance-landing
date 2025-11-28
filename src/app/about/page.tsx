@@ -80,7 +80,7 @@ export default function AboutPage() {
               <div className="flex flex-col sm:flex-row gap-4 mb-12">
                 <Link href="https://app.nalofinance.com/register">
                   <Button size="lg" className="w-full sm:w-auto font-black text-base px-8 border-2">
-                    START FREE TODAY
+                    GET STARTED TODAY
                     <ChevronRight className="ml-2 h-5 w-5" strokeWidth={3} />
                   </Button>
                 </Link>
@@ -354,7 +354,7 @@ export default function AboutPage() {
         title="Join the Financial Revolution"
         description="Over 10,000 Nigerians are already taking control of their finances with Nalo. Start free today and see the difference."
         primaryCta={{
-          text: "Get Started Free",
+          text: "Get Started",
           href: "https://app.nalofinance.com/register",
         }}
         secondaryCta={{

@@ -285,7 +285,7 @@ export default function ToolsPage() {
                   size="lg"
                   className="bg-background text-foreground hover:bg-background/90 font-black text-base px-8"
                 >
-                  Get Started Free
+                  Get Started
                   <ArrowRight className="ml-2 h-5 w-5" strokeWidth={3} />
                 </Button>
               </Link>

@@ -234,7 +234,7 @@ export function Navbar() {
             </Link>
             <Link href="https://app.nalofinance.com/register">
               <Button className="font-black uppercase text-sm border-2 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all dark:border-primary dark:shadow-[4px_4px_0_0_rgba(255,192,0,1)]">
-                Start Free
+                Get Started
                 <ArrowRight className="ml-2 h-4 w-4" strokeWidth={3} />
               </Button>
             </Link>
@@ -343,7 +343,7 @@ export function Navbar() {
                 </Link>
                 <Link href="https://app.nalofinance.com/register" className="flex-1">
                   <Button className="w-full font-black uppercase border-2 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] dark:border-primary dark:shadow-[4px_4px_0_0_rgba(255,192,0,1)]">
-                    Start Free
+                    Get Started
                   </Button>
                 </Link>
               </div>

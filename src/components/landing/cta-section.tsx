@@ -209,11 +209,11 @@ export function FinalCta() {
   return (
     <CtaSection
       variant="primary"
-      badge="Start Free Today"
+      badge="Get Started Today"
       title="Ready to Take Control of Your Finances?"
       description="Join thousands of Nigerians managing their money smarter. No credit card required, cancel anytime."
       primaryCta={{
-        text: "Get Started Free",
+        text: "Get Started",
         href: "https://app.nalofinance.com/register",
       }}
       secondaryCta={{

@@ -85,7 +85,7 @@ export function HowItWorks() {
             href="https://app.nalofinance.com/register"
             className="inline-flex items-center justify-center px-8 py-4 bg-primary hover:bg-primary/90 text-primary-foreground font-black uppercase text-base transition-colors"
           >
-            Get Started Free
+            Get Started
           </a>
         </div>
       </div>

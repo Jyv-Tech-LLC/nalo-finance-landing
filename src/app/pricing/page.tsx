@@ -160,7 +160,7 @@ export default async function PricingPage() {
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase tracking-tight leading-none">
-              Start Free,
+              Get Started,
               <br />
               <span className="text-primary">Upgrade When Ready</span>
             </h1>
@@ -329,7 +329,7 @@ export default async function PricingPage() {
         title="Ready to Take Control of Your Finances?"
         description="Join 10,000+ Nigerians managing their money smarter. Start free, upgrade when ready, cancel anytime."
         primaryCta={{
-          text: "START FREE NOW",
+          text: "GET STARTED NOW",
           href: `${appUrl}/register?plan=FREE`,
         }}
         secondaryCta={{

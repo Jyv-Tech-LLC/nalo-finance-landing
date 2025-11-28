@@ -72,7 +72,7 @@ export function Hero() {
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Link href="https://app.nalofinance.com/register" className="flex-1 sm:flex-initial">
                 <Button size="lg" className="w-full sm:w-auto font-black text-base px-8 group">
-                  START FREE
+                  GET STARTED
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" strokeWidth={3} />
                 </Button>
               </Link>

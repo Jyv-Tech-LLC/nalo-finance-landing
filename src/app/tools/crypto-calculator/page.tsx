@@ -526,7 +526,7 @@ export default function CryptoCalculatorPage() {
             </p>
             <Link href="https://app.nalofinance.com/signup">
               <Button className="font-bold uppercase text-xs bg-orange-500 hover:bg-orange-600">
-                Get Started Free
+                Get Started
                 <ArrowRight className="ml-2 h-4 w-4" strokeWidth={3} />
               </Button>
             </Link>

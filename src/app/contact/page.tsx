@@ -411,7 +411,7 @@ export default function ContactPage() {
                 variant="outline"
                 className="font-black text-base px-8 border-2 bg-white text-primary hover:bg-white/90"
               >
-                GET STARTED FREE
+                GET STARTED
                 <ChevronRight className="ml-2 h-5 w-5" strokeWidth={3} />
               </Button>
             </Link>
