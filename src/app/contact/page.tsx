@@ -17,8 +17,10 @@ import {
   Bug,
   Lightbulb,
   ChevronRight,
+  AlertCircle,
 } from "lucide-react";
 import { useState } from "react";
+import { submitContactForm } from "@/lib/api";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -30,22 +32,27 @@ export default function ContactPage() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError(null);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      await submitContactForm(formData);
+      setIsSubmitted(true);
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setFormData({ name: "", email: "", subject: "", message: "", category: "general" });
-      setIsSubmitted(false);
-    }, 3000);
+      // Reset form after 3 seconds
+      setTimeout(() => {
+        setFormData({ name: "", email: "", subject: "", message: "", category: "general" });
+        setIsSubmitted(false);
+      }, 3000);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to send message. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -174,6 +181,14 @@ export default function ContactPage() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
+                  {error && (
+                    <div className="p-4 bg-destructive/10 border-2 border-destructive flex items-start gap-3">
+                      <AlertCircle className="h-5 w-5 text-destructive shrink-0 mt-0.5" strokeWidth={3} />
+                      <div>
+                        <p className="text-sm font-bold text-destructive">{error}</p>
+                      </div>
+                    </div>
+                  )}
                   {/* Name */}
                   <div>
                     <label htmlFor="name" className="block text-sm font-black uppercase mb-2">
@@ -296,9 +311,9 @@ export default function ContactPage() {
                     {
                       icon: HelpCircle,
                       title: "Need Help Getting Started?",
-                      description: "Check out our comprehensive guides and tutorials to get up and running quickly.",
-                      action: "View Help Center",
-                      href: "/help",
+                      description: "Check out our blog for guides, tutorials, and tips to get the most out of Nalo.",
+                      action: "Read Our Blog",
+                      href: "/blog",
                     },
                     {
                       icon: Bug,

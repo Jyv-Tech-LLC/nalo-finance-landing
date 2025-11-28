@@ -17,6 +17,9 @@ export const metadata: Metadata = {
     "tax calculator free",
     "FIRS tax calculator",
   ],
+  alternates: {
+    canonical: "https://nalofinance.com/tools",
+  },
   openGraph: {
     title: "Free Tax Calculators | Nalo Finance",
     description:
@@ -24,6 +27,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_NG",
     siteName: "Nalo Finance",
+    url: "https://nalofinance.com/tools",
   },
   twitter: {
     card: "summary_large_image",

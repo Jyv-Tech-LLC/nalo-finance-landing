@@ -77,11 +77,14 @@ export function Navbar() {
   }, []);
 
   return (
-    <nav className={`sticky top-0 z-50 transition-all duration-300 ${
-      scrolled
-        ? "bg-background/95 backdrop-blur-md border-b-4 border-primary shadow-[0_4px_0_0_rgba(0,0,0,1)]"
-        : "bg-background border-b-4 border-primary"
-    }`}>
+    <nav
+      className={`sticky top-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-background/95 backdrop-blur-md border-b-4 border-primary shadow-[0_4px_0_0_rgba(0,0,0,1)]"
+          : "bg-background border-b-4 border-primary"
+      }`}
+      aria-label="Main navigation"
+    >
       {/* Top accent bar */}
       <div className="h-1 bg-gradient-to-r from-primary via-primary/50 to-primary" />
 
@@ -112,17 +115,24 @@ export function Navbar() {
                     ? "text-primary bg-primary/10"
                     : "hover:text-primary hover:bg-primary/5"
                 }`}
+                aria-expanded={featuresOpen}
+                aria-haspopup="true"
+                aria-label="Features menu"
               >
                 Features
                 <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${featuresOpen ? "rotate-180" : ""}`} strokeWidth={3} />
               </button>
 
               {/* Dropdown Menu */}
-              <div className={`absolute top-full left-0 w-80 bg-background border-2 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] transition-all duration-200 ${
-                featuresOpen
-                  ? "opacity-100 translate-y-0 pointer-events-auto"
-                  : "opacity-0 -translate-y-2 pointer-events-none"
-              }`}>
+              <div
+                className={`absolute top-full left-0 w-80 bg-background border-2 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] transition-all duration-200 ${
+                  featuresOpen
+                    ? "opacity-100 translate-y-0 pointer-events-auto"
+                    : "opacity-0 -translate-y-2 pointer-events-none"
+                }`}
+                role="menu"
+                aria-label="Features submenu"
+              >
                 <div className="p-2">
                   {features.map((feature) => {
                     const Icon = feature.icon;
@@ -218,6 +228,8 @@ export function Navbar() {
           <button
             className="lg:hidden w-12 h-12 flex items-center justify-center border-2 border-border hover:border-primary hover:bg-primary/5 transition-all"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-expanded={mobileMenuOpen}
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
           >
             <div className="relative w-6 h-6">
               <span className={`absolute left-0 w-6 h-0.5 bg-current transition-all duration-300 ${

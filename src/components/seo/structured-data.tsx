@@ -38,7 +38,6 @@ export function OrganizationSchema() {
     contactPoint: [
       {
         "@type": "ContactPoint",
-        telephone: "+234-XXX-XXX-XXXX",
         contactType: "customer service",
         email: "hello@nalofinance.com",
         availableLanguage: ["English"],

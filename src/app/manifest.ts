@@ -16,25 +16,25 @@ export default function manifest(): MetadataRoute.Manifest {
     categories: ["finance", "productivity", "utilities"],
     icons: [
       {
-        src: "/icon-192.png",
+        src: "/api/icons/192",
         sizes: "192x192",
         type: "image/png",
         purpose: "maskable",
       },
       {
-        src: "/icon-512.png",
+        src: "/api/icons/512",
         sizes: "512x512",
         type: "image/png",
         purpose: "maskable",
       },
       {
-        src: "/icon-192.png",
+        src: "/api/icons/192",
         sizes: "192x192",
         type: "image/png",
         purpose: "any",
       },
       {
-        src: "/icon-512.png",
+        src: "/api/icons/512",
         sizes: "512x512",
         type: "image/png",
         purpose: "any",
@@ -42,14 +42,14 @@ export default function manifest(): MetadataRoute.Manifest {
     ],
     screenshots: [
       {
-        src: "/screenshots/dashboard.png",
+        src: "/api/screenshots/dashboard",
         sizes: "1280x720",
         type: "image/png",
         form_factor: "wide",
         label: "Nalo Finance Dashboard",
       },
       {
-        src: "/screenshots/mobile.png",
+        src: "/api/screenshots/mobile",
         sizes: "750x1334",
         type: "image/png",
         form_factor: "narrow",
@@ -62,21 +62,21 @@ export default function manifest(): MetadataRoute.Manifest {
         short_name: "Ajo",
         description: "Manage your Ajo contribution groups",
         url: "/features/ajo-groups",
-        icons: [{ src: "/icons/ajo.png", sizes: "192x192" }],
+        icons: [{ src: "/api/icons/ajo", sizes: "192x192" }],
       },
       {
         name: "Tax Calculator",
         short_name: "Tax",
         description: "Calculate your Nigerian taxes",
         url: "/features/tax-center",
-        icons: [{ src: "/icons/tax.png", sizes: "192x192" }],
+        icons: [{ src: "/api/icons/tax", sizes: "192x192" }],
       },
       {
         name: "Budgeting",
         short_name: "Budget",
         description: "Track your spending and budget",
         url: "/features/budgeting",
-        icons: [{ src: "/icons/budget.png", sizes: "192x192" }],
+        icons: [{ src: "/api/icons/budget", sizes: "192x192" }],
       },
     ],
     related_applications: [
