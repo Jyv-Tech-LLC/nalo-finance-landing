@@ -118,11 +118,11 @@ export function BankConnectSection() {
             {/* Bank Logos */}
             <div className="grid grid-cols-3 gap-3">
               {[
-                { name: "GTBank", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Guaranty_Trust_Bank_logo.svg/200px-Guaranty_Trust_Bank_logo.svg.png", bg: "bg-white" },
-                { name: "Access Bank", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Access-bank-logo.png/200px-Access-bank-logo.png", bg: "bg-white" },
-                { name: "Zenith Bank", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/8/81/Zenith_Bank_logo.png/200px-Zenith_Bank_logo.png", bg: "bg-white" },
-                { name: "UBA", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/4/4b/United_Bank_for_Africa_logo.svg/200px-United_Bank_for_Africa_logo.svg.png", bg: "bg-white" },
-                { name: "First Bank", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/e/eb/First_Bank_of_Nigeria_logo.svg/200px-First_Bank_of_Nigeria_logo.svg.png", bg: "bg-white" },
+                { name: "GTBank", logo: "/bank-logos/GTbank.svg.png", bg: "bg-white" },
+                { name: "Access Bank", logo: "/bank-logos/access-bank.jpg", bg: "bg-white" },
+                { name: "Zenith Bank", logo: "/bank-logos/zenith-bank.png.webp", bg: "bg-white" },
+                { name: "UBA", logo: "/bank-logos/uba.png", bg: "bg-white" },
+                { name: "First Bank", logo: "/bank-logos/firstbank.png", bg: "bg-white" },
                 { name: "+20 More", logo: null, bg: "bg-white/20" },
               ].map((bank, index) => (
                 <div
@@ -133,7 +133,7 @@ export function BankConnectSection() {
                     <img
                       src={bank.logo}
                       alt={bank.name}
-                      className="h-6 w-auto object-contain"
+                      className="h-8 w-auto object-contain"
                     />
                   ) : (
                     <span className="text-xs font-black uppercase">{bank.name}</span>
