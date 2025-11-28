@@ -208,7 +208,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               )}
 
               {/* Main Content */}
-              {post.contentJson?.blocks ? (
+              {post.contentJson ? (
                 <EditorContent content={post.contentJson} />
               ) : (
                 <div

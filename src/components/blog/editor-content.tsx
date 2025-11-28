@@ -23,12 +23,25 @@ interface ListItem {
 }
 
 interface EditorContentProps {
-  content: EditorJSData;
+  content: EditorJSData | string;
   className?: string;
 }
 
 export function EditorContent({ content, className = "" }: EditorContentProps) {
-  if (!content?.blocks?.length) return null;
+  // Handle case where content is a JSON string
+  let parsedContent: EditorJSData | null = null;
+
+  if (typeof content === "string") {
+    try {
+      parsedContent = JSON.parse(content);
+    } catch {
+      return null;
+    }
+  } else {
+    parsedContent = content;
+  }
+
+  if (!parsedContent?.blocks?.length) return null;
 
   return (
     <div
@@ -47,7 +60,7 @@ export function EditorContent({ content, className = "" }: EditorContentProps) {
         prose-li:text-muted-foreground
         ${className}`}
     >
-      {content.blocks.map((block) => (
+      {parsedContent.blocks.map((block) => (
         <BlockRenderer key={block.id} block={block} />
       ))}
     </div>
