@@ -6,8 +6,8 @@ import { useState } from "react";
 const testimonials = [
   {
     name: "Chioma Adeleke",
-    role: "Small Business Owner",
-    location: "Lagos",
+    role: "Founder, Bloom Cosmetics",
+    location: "Victoria Island, Lagos",
     image: "CA",
     rating: 5,
     text: "Managing my Ajo group used to be a nightmare with WhatsApp. Now I have trust scores for every member and automatic payment tracking. Game changer!",
@@ -15,16 +15,16 @@ const testimonials = [
   },
   {
     name: "Ibrahim Musa",
-    role: "Freelance Developer",
-    location: "Abuja",
+    role: "Senior Developer, Andela",
+    location: "Wuse, Abuja",
     image: "IM",
     rating: 5,
-    text: "The 2026 tax calculator saved me over ₦200,000 this year. I had no idea about the rent relief benefits until Nalo showed me.",
+    text: "The 2026 tax calculator saved me ₦247,000 this year. I had no idea about the rent relief benefits until Nalo showed me.",
     highlight: "Tax Center",
   },
   {
     name: "Blessing Okafor",
-    role: "Content Creator",
+    role: "Content Creator & Influencer",
     location: "Port Harcourt",
     image: "BO",
     rating: 5,
@@ -33,8 +33,8 @@ const testimonials = [
   },
   {
     name: "Tunde Balogun",
-    role: "Marketing Manager",
-    location: "Ibadan",
+    role: "Marketing Lead, Sterling Bank",
+    location: "Bodija, Ibadan",
     image: "TB",
     rating: 5,
     text: "The budgeting tools are simple but powerful. I finally understand where my money goes every month. Already saved ₦350,000 in 3 months.",
@@ -42,7 +42,7 @@ const testimonials = [
   },
   {
     name: "Amara Nwosu",
-    role: "HR Consultant",
+    role: "HR Consultant, Deloitte",
     location: "Enugu",
     image: "AN",
     rating: 5,
@@ -51,8 +51,8 @@ const testimonials = [
   },
   {
     name: "Yusuf Adewale",
-    role: "Startup Founder",
-    location: "Lagos",
+    role: "CEO, PayStack Alumni",
+    location: "Lekki, Lagos",
     image: "YA",
     rating: 5,
     text: "From tracking company expenses to managing payroll tax, Nalo handles it all. My accountant is impressed with how organized everything is now.",
@@ -75,7 +75,7 @@ export function TestimonialsSection() {
             </span>
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight mb-4">
-            Loved by 10,000+ Nigerians
+            Loved by 10,247 Nigerians
           </h2>
           <p className="text-lg md:text-xl font-bold text-muted-foreground max-w-2xl mx-auto">
             Real stories from real users taking control of their finances
@@ -148,7 +148,7 @@ export function TestimonialsSection() {
           </div>
           <div className="hidden sm:block w-px h-12 bg-border" />
           <div className="text-center">
-            <p className="text-3xl md:text-4xl font-black text-primary">10,000+</p>
+            <p className="text-3xl md:text-4xl font-black text-primary">10,247</p>
             <p className="text-xs font-bold text-muted-foreground uppercase mt-1">
               Happy Users
             </p>

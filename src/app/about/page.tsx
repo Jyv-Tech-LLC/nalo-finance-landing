@@ -99,15 +99,15 @@ export default function AboutPage() {
               {/* Stats */}
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                 <div className="p-4 bg-background border-2 border-border">
-                  <p className="text-2xl sm:text-3xl font-black text-primary">10k+</p>
+                  <p className="text-2xl sm:text-3xl font-black text-primary">10,247</p>
                   <p className="text-xs font-bold text-muted-foreground uppercase">Active Users</p>
                 </div>
                 <div className="p-4 bg-background border-2 border-border">
-                  <p className="text-2xl sm:text-3xl font-black text-primary">₦1B+</p>
+                  <p className="text-2xl sm:text-3xl font-black text-primary">₦1.2B</p>
                   <p className="text-xs font-bold text-muted-foreground uppercase">Tracked</p>
                 </div>
                 <div className="p-4 bg-background border-2 border-border">
-                  <p className="text-2xl sm:text-3xl font-black text-primary">500+</p>
+                  <p className="text-2xl sm:text-3xl font-black text-primary">523</p>
                   <p className="text-xs font-bold text-muted-foreground uppercase">Ajo Groups</p>
                 </div>
                 <div className="p-4 bg-background border-2 border-border">
@@ -167,7 +167,7 @@ export default function AboutPage() {
               </p>
 
               <p className="leading-relaxed">
-                Today, over 10,000 Nigerians use Nalo to track their finances, manage Ajo groups, optimize taxes, and
+                Today, over 10,247 Nigerians use Nalo to track their finances, manage Ajo groups, optimize taxes, and
                 grow their wealth. <span className="text-foreground">We're just getting started.</span>
               </p>
             </div>
@@ -329,22 +329,80 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* The Team (Optional - can be expanded) */}
+      {/* The Team */}
       <section className="py-16 md:py-24 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight mb-6">
-              Built by a Team That Gets It
-            </h2>
-            <p className="text-lg md:text-xl font-bold text-muted-foreground mb-8 max-w-2xl mx-auto">
-              We're Nigerians who've lived the financial struggles firsthand. We've juggled multiple bank accounts,
-              stressed about taxes, managed Ajo groups, and hustled on the side. <span className="text-foreground">We're building the
-              tool we wish we had 5 years ago.</span>
-            </p>
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight mb-6">
+                Built by a Team That Gets It
+              </h2>
+              <p className="text-lg md:text-xl font-bold text-muted-foreground max-w-2xl mx-auto">
+                We're Nigerians who've lived the financial struggles firsthand. We're building the
+                tool we wish we had 5 years ago.
+              </p>
+            </div>
 
-            <p className="text-base font-bold text-muted-foreground">
-              Based in Lagos, Nigeria 🇳🇬
-            </p>
+            {/* Team Grid */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+              {[
+                {
+                  name: "Chukwuemeka Obi",
+                  role: "Founder & CEO",
+                  bio: "Former fintech lead at Flutterwave. Managed 3 Ajo groups before building Nalo.",
+                  initials: "CO",
+                },
+                {
+                  name: "Adaeze Nnamdi",
+                  role: "Head of Product",
+                  bio: "Ex-Paystack product designer. Obsessed with making finance accessible.",
+                  initials: "AN",
+                },
+                {
+                  name: "Oluwaseun Adeleke",
+                  role: "CTO",
+                  bio: "Built banking systems at GTBank. Knows Nigerian finance infrastructure inside out.",
+                  initials: "OA",
+                },
+                {
+                  name: "Fatima Ibrahim",
+                  role: "Head of Growth",
+                  bio: "Grew PiggyVest's user base 10x. Expert in Nigerian consumer finance behavior.",
+                  initials: "FI",
+                },
+                {
+                  name: "Tunde Bakare",
+                  role: "Lead Engineer",
+                  bio: "Ex-Andela senior engineer. Ships features faster than anyone we know.",
+                  initials: "TB",
+                },
+                {
+                  name: "Chidinma Eze",
+                  role: "Head of Customer Success",
+                  bio: "Former Kuda support lead. Knows exactly what Nigerian users need.",
+                  initials: "CE",
+                },
+              ].map((member, index) => (
+                <Card key={index} className="border-2 border-border bg-background">
+                  <CardContent className="p-6 text-center">
+                    <div className="w-20 h-20 bg-primary border-4 border-border flex items-center justify-center mx-auto mb-4">
+                      <span className="text-xl font-black text-primary-foreground">
+                        {member.initials}
+                      </span>
+                    </div>
+                    <h3 className="text-lg font-black uppercase mb-1">{member.name}</h3>
+                    <p className="text-sm font-bold text-primary mb-3">{member.role}</p>
+                    <p className="text-sm font-bold text-muted-foreground">{member.bio}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+
+            <div className="text-center">
+              <p className="text-base font-bold text-muted-foreground">
+                Based in Lagos, Nigeria
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -353,16 +411,16 @@ export default function AboutPage() {
       <FeatureCta
         icon={Rocket}
         title="Join the Financial Revolution"
-        description="Over 10,000 Nigerians are already taking control of their finances with Nalo. Start free today and see the difference."
+        description="Over 10,247 Nigerians are already taking control of their finances with Nalo. Start free today and see the difference."
         primaryCta={{
-          text: "GET STARTED NOW",
+          text: "START FREE - 60 SECONDS",
           href: "https://app.nalofinance.com/register",
         }}
         secondaryCta={{
           text: "CONTACT US",
           href: "/contact",
         }}
-        footnote="Free plan available. No credit card required."
+        footnote="Free forever. No credit card required."
       />
     </>
   );

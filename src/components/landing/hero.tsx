@@ -18,21 +18,21 @@ export function Hero() {
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border-2 border-primary/20">
               <div className="w-2 h-2 bg-primary animate-pulse" />
               <span className="text-xs font-black uppercase tracking-wide">
-                #1 Personal Finance App for Nigerians
+                Trusted by 10,247 Nigerians
               </span>
             </div>
 
             {/* Headline */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase tracking-tight leading-none">
-              Your Ajo,
+              Your Money
               <br />
-              <span className="text-primary">Digitized</span>
+              <span className="text-primary">Finally Makes Sense</span>
             </h1>
 
             {/* Subheadline */}
             <p className="text-lg sm:text-xl md:text-2xl font-bold text-muted-foreground max-w-xl">
-              Manage Ajo groups with trust scores. Master your taxes. Optimize your hustles.
-              All in one powerful platform.
+              Stop guessing where your Naira went. See exactly where your money goes,
+              save thousands on taxes, and grow every income stream.
             </p>
 
             {/* Trust Indicators */}
@@ -42,7 +42,7 @@ export function Hero() {
                   <Users className="h-4 w-4 text-success" strokeWidth={3} />
                 </div>
                 <div>
-                  <p className="text-lg font-black">10,000+</p>
+                  <p className="text-lg font-black">10,247</p>
                   <p className="text-xs font-bold text-muted-foreground uppercase">Users</p>
                 </div>
               </div>
@@ -52,7 +52,7 @@ export function Hero() {
                   <Shield className="h-4 w-4 text-primary" strokeWidth={3} />
                 </div>
                 <div>
-                  <p className="text-lg font-black">500+</p>
+                  <p className="text-lg font-black">523</p>
                   <p className="text-xs font-bold text-muted-foreground uppercase">Ajo Groups</p>
                 </div>
               </div>
@@ -62,7 +62,7 @@ export function Hero() {
                   <TrendingUp className="h-4 w-4 text-success" strokeWidth={3} />
                 </div>
                 <div>
-                  <p className="text-lg font-black">₦2M+</p>
+                  <p className="text-lg font-black">₦2.3M</p>
                   <p className="text-xs font-bold text-muted-foreground uppercase">Tax Saved</p>
                 </div>
               </div>
@@ -72,21 +72,21 @@ export function Hero() {
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Link href="https://app.nalofinance.com/register" className="flex-1 sm:flex-initial">
                 <Button size="lg" className="w-full sm:w-auto font-black text-base px-8 group">
-                  GET STARTED
+                  START FREE - 60 SECONDS
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" strokeWidth={3} />
                 </Button>
               </Link>
 
               <Link href="#how-it-works" className="flex-1 sm:flex-initial">
                 <Button size="lg" variant="outline" className="w-full sm:w-auto font-black text-base px-8 border-2">
-                  HOW IT WORKS
+                  SEE HOW IT WORKS
                 </Button>
               </Link>
             </div>
 
             {/* Below CTA Text */}
             <p className="text-sm font-bold text-muted-foreground">
-              Free forever. No credit card required. Start in 60 seconds.
+              Free forever. No credit card required. Join 10,247 Nigerians.
             </p>
           </div>
 

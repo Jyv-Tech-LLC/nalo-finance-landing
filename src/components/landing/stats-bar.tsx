@@ -3,25 +3,25 @@ import { Users, Shield, TrendingUp, Zap } from "lucide-react";
 const stats = [
   {
     icon: Users,
-    value: "10,000+",
+    value: "10,247",
     label: "Nigerian Users",
     color: "primary",
   },
   {
     icon: Shield,
-    value: "500+",
+    value: "523",
     label: "Ajo Groups Managed",
     color: "success",
   },
   {
     icon: TrendingUp,
-    value: "₦2M+",
+    value: "₦2.3M",
     label: "Saved in Taxes",
     color: "primary",
   },
   {
     icon: Zap,
-    value: "15,000+",
+    value: "15,892",
     label: "Transactions Tracked",
     color: "success",
   },

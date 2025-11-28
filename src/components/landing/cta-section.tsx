@@ -209,17 +209,17 @@ export function FinalCta() {
   return (
     <FeatureCta
       icon={Rocket}
-      title="Ready to Take Control of Your Finances?"
-      description="Join 10,000+ Nigerians managing their money smarter. No credit card required, cancel anytime."
+      title="Join 10,247 Nigerians Taking Control"
+      description="The average Nalo user discovers ₦38,000 in savings opportunities within their first month. Start free and see what you're missing."
       primaryCta={{
-        text: "GET STARTED NOW",
+        text: "START FREE NOW",
         href: "https://app.nalofinance.com/register",
       }}
       secondaryCta={{
         text: "SEE PRICING",
         href: "/pricing",
       }}
-      footnote="Free plan available. No credit card required."
+      footnote="Free forever. No credit card required. Setup in 60 seconds."
     />
   );
 }
@@ -231,14 +231,14 @@ export function MidPageCta() {
       title="Stop Guessing. Start Knowing."
       description="Get real-time insights into your finances with AI-powered recommendations and automated tracking."
       primaryCta={{
-        text: "GET STARTED",
+        text: "START FREE - 60 SECONDS",
         href: "https://app.nalofinance.com/register",
       }}
       secondaryCta={{
-        text: "HOW IT WORKS",
+        text: "SEE HOW IT WORKS",
         href: "#how-it-works",
       }}
-      footnote="Join 10,000+ Nigerians already using Nalo Finance."
+      footnote="Join 10,247 Nigerians already using Nalo Finance."
     />
   );
 }
