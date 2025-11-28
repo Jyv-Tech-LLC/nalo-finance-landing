@@ -12,7 +12,7 @@ import {
   formatReadTime,
   getAuthorName,
 } from "@/lib/blog";
-import { PostCardCompact, Newsletter, Sidebar, ShareButtons, FloatingShare } from "@/components/blog";
+import { PostCardCompact, Newsletter, Sidebar, ShareButtons, FloatingShare, EditorContent } from "@/components/blog";
 import { ViewTracker } from "./view-tracker";
 
 interface BlogPostPageProps {
@@ -208,23 +208,27 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               )}
 
               {/* Main Content */}
-              <div
-                className="prose prose-lg max-w-none
-                  prose-headings:font-black prose-headings:uppercase prose-headings:tracking-tight
-                  prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-6
-                  prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-4
-                  prose-p:text-muted-foreground prose-p:leading-relaxed
-                  prose-a:text-primary prose-a:font-bold prose-a:no-underline hover:prose-a:underline
-                  prose-strong:text-foreground
-                  prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:bg-primary/5 prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:not-italic
-                  prose-code:bg-muted prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:before:content-none prose-code:after:content-none
-                  prose-pre:bg-gray-900 prose-pre:text-gray-100
-                  prose-img:rounded-lg prose-img:border-2 prose-img:border-border
-                  prose-ul:list-disc prose-ol:list-decimal
-                  prose-li:text-muted-foreground
-                "
-                dangerouslySetInnerHTML={{ __html: post.content }}
-              />
+              {post.contentJson?.blocks ? (
+                <EditorContent content={post.contentJson} />
+              ) : (
+                <div
+                  className="prose prose-lg max-w-none
+                    prose-headings:font-black prose-headings:uppercase prose-headings:tracking-tight
+                    prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-6
+                    prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-4
+                    prose-p:text-muted-foreground prose-p:leading-relaxed
+                    prose-a:text-primary prose-a:font-bold prose-a:no-underline hover:prose-a:underline
+                    prose-strong:text-foreground
+                    prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:bg-primary/5 prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:not-italic
+                    prose-code:bg-muted prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:before:content-none prose-code:after:content-none
+                    prose-pre:bg-gray-900 prose-pre:text-gray-100
+                    prose-img:rounded-lg prose-img:border-2 prose-img:border-border
+                    prose-ul:list-disc prose-ol:list-decimal
+                    prose-li:text-muted-foreground
+                  "
+                  dangerouslySetInnerHTML={{ __html: post.content }}
+                />
+              )}
 
               {/* Tags */}
               {post.tags && post.tags.length > 0 && (
