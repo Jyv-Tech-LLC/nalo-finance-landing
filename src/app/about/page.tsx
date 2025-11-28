@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { CtaSection } from "@/components/landing/cta-section";
+import { FeatureCta } from "@/components/landing/cta-section";
 import {
   Target,
   Users,
@@ -12,6 +12,7 @@ import {
   Globe,
   Lightbulb,
   ChevronRight,
+  Rocket,
 } from "lucide-react";
 import type { Metadata } from "next";
 
@@ -349,18 +350,19 @@ export default function AboutPage() {
       </section>
 
       {/* Final CTA */}
-      <CtaSection
-        variant="primary"
+      <FeatureCta
+        icon={Rocket}
         title="Join the Financial Revolution"
         description="Over 10,000 Nigerians are already taking control of their finances with Nalo. Start free today and see the difference."
         primaryCta={{
-          text: "Get Started",
+          text: "GET STARTED NOW",
           href: "https://app.nalofinance.com/register",
         }}
         secondaryCta={{
-          text: "Contact Us",
+          text: "CONTACT US",
           href: "/contact",
         }}
+        footnote="Free plan available. No credit card required."
       />
     </>
   );

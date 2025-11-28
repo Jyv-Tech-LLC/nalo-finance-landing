@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles, LucideIcon } from "lucide-react";
+import { ArrowRight, Sparkles, LucideIcon, Rocket, Zap } from "lucide-react";
 
 interface CtaSectionProps {
   variant?: "primary" | "secondary";
@@ -207,37 +207,38 @@ export function FeatureCta({
 // Pre-configured CTA sections
 export function FinalCta() {
   return (
-    <CtaSection
-      variant="primary"
-      badge="Get Started Today"
+    <FeatureCta
+      icon={Rocket}
       title="Ready to Take Control of Your Finances?"
-      description="Join thousands of Nigerians managing their money smarter. No credit card required, cancel anytime."
+      description="Join 10,000+ Nigerians managing their money smarter. No credit card required, cancel anytime."
       primaryCta={{
-        text: "Get Started",
+        text: "GET STARTED NOW",
         href: "https://app.nalofinance.com/register",
       }}
       secondaryCta={{
-        text: "See Pricing",
+        text: "SEE PRICING",
         href: "/pricing",
       }}
+      footnote="Free plan available. No credit card required."
     />
   );
 }
 
 export function MidPageCta() {
   return (
-    <CtaSection
-      variant="secondary"
+    <FeatureCta
+      icon={Zap}
       title="Stop Guessing. Start Knowing."
       description="Get real-time insights into your finances with AI-powered recommendations and automated tracking."
       primaryCta={{
-        text: "Try It Free",
+        text: "GET STARTED",
         href: "https://app.nalofinance.com/register",
       }}
       secondaryCta={{
-        text: "Watch Demo",
+        text: "HOW IT WORKS",
         href: "#how-it-works",
       }}
+      footnote="Join 10,000+ Nigerians already using Nalo Finance."
     />
   );
 }
