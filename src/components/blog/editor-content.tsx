@@ -103,28 +103,36 @@ function HeaderBlock({ data }: { data: { text: string; level: number } }) {
 }
 
 // List block with nested item support
+// Handles both old format (string[]) and new format (ListItem[])
 function ListBlock({
   data,
 }: {
-  data: { style: string; items: ListItem[] };
+  data: { style: string; items: (string | ListItem)[] };
 }) {
   const isOrdered = data.style === "ordered";
 
-  const renderItems = (items: ListItem[], depth = 0): React.JSX.Element => {
+  const renderItems = (items: (string | ListItem)[], depth = 0): React.JSX.Element => {
     const Tag = isOrdered ? "ol" : "ul";
 
     return (
-      <Tag className={depth > 0 ? "mt-2" : ""}>
-        {items.map((item, idx) => (
-          <li key={idx}>
-            <span dangerouslySetInnerHTML={{ __html: item.content }} />
-            {item.items && item.items.length > 0 && renderItems(item.items, depth + 1)}
-          </li>
-        ))}
+      <Tag className={depth > 0 ? "mt-2 ml-4" : ""}>
+        {items.map((item, idx) => {
+          // Handle both string items (old format) and object items (new format)
+          const content = typeof item === "string" ? item : item.content;
+          const nestedItems = typeof item === "object" && item.items?.length ? item.items : null;
+
+          return (
+            <li key={idx}>
+              <span dangerouslySetInnerHTML={{ __html: content }} />
+              {nestedItems && renderItems(nestedItems, depth + 1)}
+            </li>
+          );
+        })}
       </Tag>
     );
   };
 
+  if (!data.items?.length) return null;
   return renderItems(data.items);
 }
 
@@ -196,9 +204,30 @@ function TableBlock({
 }) {
   if (!data.content?.length) return null;
 
-  const hasHeadings = data.withHeadings && data.content.length > 1;
-  const headers = hasHeadings ? data.content[0] : null;
-  const rows = hasHeadings ? data.content.slice(1) : data.content;
+  // Filter out empty columns (columns where all cells are empty or whitespace)
+  const columnCount = Math.max(...data.content.map(row => row.length));
+  const nonEmptyColumns: number[] = [];
+
+  for (let col = 0; col < columnCount; col++) {
+    const hasContent = data.content.some(row => row[col]?.trim());
+    if (hasContent) {
+      nonEmptyColumns.push(col);
+    }
+  }
+
+  // Filter rows to only include non-empty columns
+  const filteredContent = data.content.map(row =>
+    nonEmptyColumns.map(colIdx => row[colIdx] || "")
+  );
+
+  if (!filteredContent.length || !nonEmptyColumns.length) return null;
+
+  const hasHeadings = data.withHeadings && filteredContent.length > 1;
+  const headers = hasHeadings ? filteredContent[0] : null;
+  const rows = hasHeadings ? filteredContent.slice(1) : filteredContent;
+
+  // Skip rendering if no data rows
+  if (!rows.length) return null;
 
   return (
     <div className="overflow-x-auto my-8">
@@ -209,7 +238,7 @@ function TableBlock({
               {headers.map((cell, idx) => (
                 <th
                   key={idx}
-                  className="border-2 border-border px-4 py-2 text-left font-black uppercase text-sm"
+                  className="border-2 border-border px-4 py-3 text-left font-black uppercase text-sm"
                   dangerouslySetInnerHTML={{ __html: cell }}
                 />
               ))}
@@ -218,11 +247,11 @@ function TableBlock({
         )}
         <tbody>
           {rows.map((row, rowIdx) => (
-            <tr key={rowIdx} className={rowIdx % 2 === 0 ? "" : "bg-muted/30"}>
+            <tr key={rowIdx} className={rowIdx % 2 === 0 ? "bg-background" : "bg-muted/30"}>
               {row.map((cell, cellIdx) => (
                 <td
                   key={cellIdx}
-                  className="border-2 border-border px-4 py-2 text-sm"
+                  className="border-2 border-border px-4 py-3 text-sm"
                   dangerouslySetInnerHTML={{ __html: cell }}
                 />
               ))}
