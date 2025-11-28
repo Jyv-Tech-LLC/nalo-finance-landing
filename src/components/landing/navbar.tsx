@@ -4,8 +4,6 @@ import Link from "next/link";
 import { Logo } from "@/components/layout/logo";
 import { Button } from "@/components/ui/button";
 import {
-  Menu,
-  X,
   ChevronDown,
   Users,
   Calculator,
@@ -15,10 +13,20 @@ import {
   Sparkles,
   ArrowRight,
   Target,
+  Building2,
+  CreditCard,
 } from "lucide-react";
+import { ThemeToggleDropdown } from "@/components/theme-toggle";
 import { useState, useEffect } from "react";
 
 const features = [
+  {
+    name: "Bank Connect",
+    description: "Sync with your bank via Mono",
+    href: "https://app.nalofinance.com/register",
+    icon: Building2,
+    color: "bg-primary",
+  },
   {
     name: "Ajo Groups",
     description: "Digital contribution management",
@@ -60,6 +68,13 @@ const features = [
     href: "/features/income-streams",
     icon: TrendingUp,
     color: "bg-primary",
+  },
+  {
+    name: "Loans & Debt",
+    description: "Track & crush your debt",
+    href: "https://app.nalofinance.com/register",
+    icon: CreditCard,
+    color: "bg-red-500",
   },
 ];
 
@@ -208,6 +223,7 @@ export function Navbar() {
 
           {/* Desktop Auth Buttons */}
           <div className="hidden lg:flex items-center gap-3">
+            <ThemeToggleDropdown />
             <Link href="https://app.nalofinance.com/login">
               <Button
                 variant="ghost"
@@ -217,7 +233,7 @@ export function Navbar() {
               </Button>
             </Link>
             <Link href="https://app.nalofinance.com/register">
-              <Button className="font-black uppercase text-sm border-2 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all">
+              <Button className="font-black uppercase text-sm border-2 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all dark:border-primary dark:shadow-[4px_4px_0_0_rgba(255,192,0,1)]">
                 Start Free
                 <ArrowRight className="ml-2 h-4 w-4" strokeWidth={3} />
               </Button>
@@ -313,18 +329,24 @@ export function Navbar() {
               </Link>
             </div>
 
-            {/* Auth Buttons */}
-            <div className="flex gap-3 pt-4 border-t-2 border-border">
-              <Link href="https://app.nalofinance.com/login" className="flex-1">
-                <Button variant="outline" className="w-full font-black uppercase border-2">
-                  Sign In
-                </Button>
-              </Link>
-              <Link href="https://app.nalofinance.com/register" className="flex-1">
-                <Button className="w-full font-black uppercase border-2 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)]">
-                  Start Free
-                </Button>
-              </Link>
+            {/* Theme Toggle & Auth Buttons */}
+            <div className="pt-4 border-t-2 border-border space-y-3">
+              <div className="flex items-center justify-between px-2">
+                <span className="text-xs font-black uppercase text-muted-foreground">Theme</span>
+                <ThemeToggleDropdown />
+              </div>
+              <div className="flex gap-3">
+                <Link href="https://app.nalofinance.com/login" className="flex-1">
+                  <Button variant="outline" className="w-full font-black uppercase border-2">
+                    Sign In
+                  </Button>
+                </Link>
+                <Link href="https://app.nalofinance.com/register" className="flex-1">
+                  <Button className="w-full font-black uppercase border-2 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] dark:border-primary dark:shadow-[4px_4px_0_0_rgba(255,192,0,1)]">
+                    Start Free
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>

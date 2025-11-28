@@ -31,6 +31,8 @@ import {
   Star,
   ArrowUpRight,
   HelpCircle,
+  Activity,
+  PieChart,
 } from "lucide-react";
 
 const smartGoalsFaqs = [
@@ -451,8 +453,225 @@ export default function SmartGoalsPage() {
         </div>
       </section>
 
-      {/* How It Works */}
+      {/* Goal Status System */}
       <section className="py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border-2 border-primary/20 mb-6">
+              <Activity className="h-4 w-4 text-primary" strokeWidth={3} />
+              <span className="text-xs font-black uppercase tracking-wide">
+                Goal Lifecycle
+              </span>
+            </div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight mb-4">
+              Smart Goal Status System
+            </h2>
+            <p className="text-lg md:text-xl font-bold text-muted-foreground max-w-2xl mx-auto">
+              Track your goal through every stage from creation to completion.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            {[
+              {
+                status: "NOT STARTED",
+                description: "Goal created but no funds added yet. Ready for your first contribution.",
+                color: "bg-muted",
+                textColor: "text-muted-foreground",
+                borderColor: "border-border",
+              },
+              {
+                status: "IN PROGRESS",
+                description: "Active goal with savings in progress. Keep going—you're on your way!",
+                color: "bg-primary/10",
+                textColor: "text-primary",
+                borderColor: "border-primary",
+              },
+              {
+                status: "COMPLETED",
+                description: "Target amount reached! Time to celebrate your financial achievement.",
+                color: "bg-success/10",
+                textColor: "text-success",
+                borderColor: "border-success",
+              },
+            ].map((item, index) => (
+              <div key={index} className={`p-6 border-2 ${item.borderColor} ${item.color}`}>
+                <div className={`inline-block px-3 py-1 text-xs font-black uppercase mb-4 ${item.textColor} bg-background border-2 ${item.borderColor}`}>
+                  {item.status}
+                </div>
+                <p className="text-sm font-bold text-muted-foreground">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Goal Timeline & Tracking */}
+      <section className="py-16 md:py-24 bg-muted/30">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border-2 border-primary/20 mb-6">
+                <Calendar className="h-4 w-4 text-primary" strokeWidth={3} />
+                <span className="text-xs font-black uppercase tracking-wide">
+                  Timeline Tracking
+                </span>
+              </div>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight mb-6">
+                Every Milestone
+                <br />
+                <span className="text-primary">Tracked Automatically</span>
+              </h2>
+              <p className="text-lg md:text-xl font-bold text-muted-foreground mb-8">
+                Your goal timeline shows you exactly where you are in your savings journey.
+              </p>
+
+              <div className="space-y-4">
+                {[
+                  { label: "Goal Created", description: "When you first set your savings target" },
+                  { label: "Last Updated", description: "Your most recent contribution or edit" },
+                  { label: "Target Deadline", description: "Your goal completion date with countdown" },
+                  { label: "Days Remaining", description: "Real-time countdown or overdue alert" },
+                ].map((item, index) => (
+                  <div key={index} className="flex items-start gap-4 p-4 bg-background border-2 border-border">
+                    <div className="w-8 h-8 bg-primary/10 border-2 border-primary/20 flex items-center justify-center shrink-0">
+                      <span className="text-sm font-black text-primary">{index + 1}</span>
+                    </div>
+                    <div>
+                      <p className="font-black text-sm uppercase">{item.label}</p>
+                      <p className="text-sm font-bold text-muted-foreground">{item.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="bg-card border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+              <p className="text-xs font-black uppercase text-muted-foreground mb-4">Goal Detail View</p>
+
+              {/* Mock Goal Detail */}
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-xl font-black">Emergency Fund</h3>
+                  <span className="px-3 py-1 bg-primary/10 text-primary text-xs font-black uppercase">In Progress</span>
+                </div>
+
+                <div className="h-4 bg-muted">
+                  <div className="h-full bg-primary w-[58%]" />
+                </div>
+                <p className="text-sm font-bold text-right">58% Complete</p>
+
+                <div className="grid grid-cols-2 gap-4 p-4 bg-muted/30 border-2 border-border">
+                  <div>
+                    <p className="text-xs font-bold text-muted-foreground uppercase">Saved</p>
+                    <p className="text-lg font-black text-success">₦875,000</p>
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold text-muted-foreground uppercase">Target</p>
+                    <p className="text-lg font-black">₦1,500,000</p>
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold text-muted-foreground uppercase">Remaining</p>
+                    <p className="text-lg font-black text-primary">₦625,000</p>
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold text-muted-foreground uppercase">Days Left</p>
+                    <p className="text-lg font-black">127</p>
+                  </div>
+                </div>
+
+                <div className="space-y-2 p-4 border-l-4 border-primary bg-primary/5">
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="font-bold text-muted-foreground">Goal Created</span>
+                    <span className="font-black">Jan 15, 2025</span>
+                  </div>
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="font-bold text-muted-foreground">Last Updated</span>
+                    <span className="font-black">Nov 25, 2025</span>
+                  </div>
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="font-bold text-muted-foreground">Target Date</span>
+                    <span className="font-black">Dec 31, 2025</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Savings Visualization */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-success/10 border-2 border-success/20 mb-6">
+              <BarChart3 className="h-4 w-4 text-success" strokeWidth={3} />
+              <span className="text-xs font-black uppercase tracking-wide">
+                Visual Analytics
+              </span>
+            </div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight mb-4">
+              See Your Progress <span className="text-primary">Visually</span>
+            </h2>
+            <p className="text-lg md:text-xl font-bold text-muted-foreground max-w-2xl mx-auto">
+              Beautiful charts and visualizations that make tracking your goals enjoyable.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {[
+              {
+                title: "Savings Distribution",
+                description: "Donut chart showing saved vs remaining for each goal at a glance.",
+                icon: PieChart,
+              },
+              {
+                title: "Progress Bars",
+                description: "Compare progress across your top 5 goals with visual progress bars.",
+                icon: BarChart3,
+              },
+              {
+                title: "6-Month Forecast",
+                description: "Area chart projecting your savings trajectory based on current pace.",
+                icon: TrendingUp,
+              },
+            ].map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <div key={index} className="p-6 bg-muted/30 border-2 border-border hover:border-primary transition-colors">
+                  <div className="w-12 h-12 bg-primary/10 border-2 border-primary/20 flex items-center justify-center mb-4">
+                    <Icon className="h-6 w-6 text-primary" strokeWidth={3} />
+                  </div>
+                  <h3 className="text-lg font-black uppercase mb-2">{item.title}</h3>
+                  <p className="text-sm font-bold text-muted-foreground">{item.description}</p>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Quick Add Feature */}
+          <div className="mt-12 p-6 bg-primary/5 border-l-4 border-primary max-w-5xl mx-auto">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <div>
+                <p className="font-black uppercase text-sm mb-1">Quick-Add Buttons</p>
+                <p className="text-sm font-bold text-muted-foreground">
+                  Instantly add ₦100, ₦500, ₦1,000 or any custom amount to your goals with one tap.
+                </p>
+              </div>
+              <div className="flex gap-2">
+                {["+₦100", "+₦500", "+₦1,000", "Custom"].map((amount) => (
+                  <span key={amount} className="px-4 py-2 bg-background border-2 border-border text-sm font-black">
+                    {amount}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="py-16 md:py-24 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight mb-4">
@@ -487,7 +706,7 @@ export default function SmartGoalsPage() {
               },
             ].map((item, index) => (
               <div key={index} className="relative">
-                <div className="p-6 border-2 border-border bg-muted/30 h-full hover:border-primary transition-colors">
+                <div className="p-6 border-2 border-border bg-background h-full hover:border-primary transition-colors">
                   <div className="text-5xl font-black text-primary/20 mb-4">{item.step}</div>
                   <h3 className="text-lg font-black uppercase mb-3">{item.title}</h3>
                   <p className="text-sm font-bold text-muted-foreground">{item.description}</p>

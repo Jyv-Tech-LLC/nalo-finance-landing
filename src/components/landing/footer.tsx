@@ -9,9 +9,12 @@ const footerLinks = {
     { label: "How It Works", href: "#how-it-works" },
   ],
   features: [
+    { label: "Bank Connect", href: "https://app.nalofinance.com/register" },
     { label: "Ajo Groups", href: "/features/ajo-groups" },
     { label: "Tax Center", href: "/features/tax-center" },
     { label: "Budgeting", href: "/features/budgeting" },
+    { label: "Loans & Debt", href: "https://app.nalofinance.com/register" },
+    { label: "Financial Reports", href: "https://app.nalofinance.com/register" },
     { label: "Smart Goals", href: "/features/smart-goals" },
     { label: "Financial Guide", href: "/features/financial-guide" },
     { label: "Income Streams", href: "/features/income-streams" },

@@ -37,6 +37,11 @@ import {
   Minus,
   Star,
   Quote,
+  Calculator,
+  Award,
+  MapPin,
+  Wallet,
+  Heart,
 } from "lucide-react";
 
 const incomeStreamsFaqs = [
@@ -553,6 +558,315 @@ export default function IncomeStreamsPage() {
                 </Card>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* Performance Score Algorithm */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border-2 border-primary/20 mb-6">
+                <Calculator className="h-4 w-4 text-primary" strokeWidth={3} />
+                <span className="text-xs font-black uppercase tracking-wide">
+                  The Algorithm
+                </span>
+              </div>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight mb-6">
+                How Your Score Is
+                <br />
+                <span className="text-primary">Calculated</span>
+              </h2>
+              <p className="text-lg md:text-xl font-bold text-muted-foreground mb-8">
+                Our AI uses a transparent 100-point scoring system with three weighted factors.
+              </p>
+
+              <div className="space-y-4">
+                {[
+                  {
+                    points: "50",
+                    factor: "Hourly Rate Score",
+                    description: "Benchmarked against ₦5,000/hour target. Higher hourly earnings = more points.",
+                    formula: "(Your Rate ÷ ₦5,000) × 50",
+                  },
+                  {
+                    points: "30",
+                    factor: "Contribution Score",
+                    description: "What percentage of your total income comes from this stream?",
+                    formula: "% of Total Income ÷ 2",
+                  },
+                  {
+                    points: "20",
+                    factor: "Consistency Score",
+                    description: "How regularly do you earn from this stream? More transactions = higher score.",
+                    formula: "(Transactions ÷ 10) × 20",
+                  },
+                ].map((item, index) => (
+                  <div key={index} className="p-4 bg-muted/30 border-2 border-border">
+                    <div className="flex items-center gap-4 mb-2">
+                      <div className="w-14 h-14 bg-primary flex items-center justify-center shrink-0">
+                        <span className="text-xl font-black text-primary-foreground">{item.points}</span>
+                      </div>
+                      <div>
+                        <p className="font-black uppercase text-sm">{item.factor}</p>
+                        <p className="text-xs font-bold text-muted-foreground">{item.description}</p>
+                      </div>
+                    </div>
+                    <div className="ml-18 p-2 bg-background border-l-4 border-primary">
+                      <code className="text-xs font-black text-primary">{item.formula}</code>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="bg-card border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+              <p className="text-xs font-black uppercase text-muted-foreground mb-6">Example Calculation</p>
+
+              <div className="space-y-4">
+                <div className="p-4 bg-muted/30 border-2 border-border">
+                  <p className="text-sm font-black mb-2">Freelance Design Stream</p>
+                  <div className="grid grid-cols-2 gap-4 text-sm">
+                    <div>
+                      <p className="text-xs font-bold text-muted-foreground">Monthly Income</p>
+                      <p className="font-black">₦280,000</p>
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold text-muted-foreground">Hours Worked</p>
+                      <p className="font-black">35 hours</p>
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold text-muted-foreground">% of Total</p>
+                      <p className="font-black">30%</p>
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold text-muted-foreground">Transactions</p>
+                      <p className="font-black">12</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <div className="flex justify-between p-2 bg-primary/10 border-l-4 border-primary">
+                    <span className="text-sm font-bold">Hourly Rate: ₦8,000/hr</span>
+                    <span className="text-sm font-black">+50 pts</span>
+                  </div>
+                  <div className="flex justify-between p-2 bg-primary/10 border-l-4 border-primary">
+                    <span className="text-sm font-bold">Contribution: 30%</span>
+                    <span className="text-sm font-black">+15 pts</span>
+                  </div>
+                  <div className="flex justify-between p-2 bg-primary/10 border-l-4 border-primary">
+                    <span className="text-sm font-bold">Consistency: 12 txns</span>
+                    <span className="text-sm font-black">+20 pts</span>
+                  </div>
+                </div>
+
+                <div className="p-4 bg-success/10 border-2 border-success">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-xs font-bold text-muted-foreground uppercase">Total Score</p>
+                      <p className="text-3xl font-black text-success">85/100</p>
+                    </div>
+                    <div className="px-4 py-2 bg-success text-success-foreground font-black uppercase text-sm">
+                      FOCUS
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contribution Badges */}
+      <section className="py-16 md:py-24 bg-muted/30">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border-2 border-primary/20 mb-6">
+              <Award className="h-4 w-4 text-primary" strokeWidth={3} />
+              <span className="text-xs font-black uppercase tracking-wide">
+                Stream Classification
+              </span>
+            </div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight mb-4">
+              Contribution <span className="text-primary">Badges</span>
+            </h2>
+            <p className="text-lg md:text-xl font-bold text-muted-foreground max-w-2xl mx-auto">
+              Each income stream is classified based on its contribution to your total income.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            {[
+              {
+                badge: "PRIMARY",
+                percentage: "40%+",
+                description: "Your main income source. The backbone of your earnings.",
+                color: "bg-primary",
+                textColor: "text-primary-foreground",
+                borderColor: "border-primary",
+              },
+              {
+                badge: "SECONDARY",
+                percentage: "15-39%",
+                description: "Significant contributor. Important diversification.",
+                color: "bg-blue-500",
+                textColor: "text-white",
+                borderColor: "border-blue-500",
+              },
+              {
+                badge: "MINOR",
+                percentage: "1-14%",
+                description: "Supplemental income. Growing or testing phase.",
+                color: "bg-muted",
+                textColor: "text-foreground",
+                borderColor: "border-border",
+              },
+            ].map((item, index) => (
+              <div key={index} className={`p-6 border-2 ${item.borderColor} bg-background`}>
+                <div className={`inline-block px-4 py-2 ${item.color} ${item.textColor} font-black uppercase text-sm mb-4`}>
+                  {item.badge}
+                </div>
+                <p className="text-3xl font-black mb-2">{item.percentage}</p>
+                <p className="text-xs font-bold text-muted-foreground uppercase mb-4">of Total Income</p>
+                <p className="text-sm font-bold text-muted-foreground">{item.description}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 p-6 bg-primary/5 border-l-4 border-primary max-w-4xl mx-auto">
+            <p className="text-sm font-bold">
+              <span className="font-black text-primary">DIVERSIFICATION TIP: </span>
+              Having multiple income streams reduces risk. Aim for at least 2 streams contributing 20%+ each to avoid over-reliance on any single source.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Nigerian Context Features */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-success/10 border-2 border-success/20 mb-6">
+              <MapPin className="h-4 w-4 text-success" strokeWidth={3} />
+              <span className="text-xs font-black uppercase tracking-wide">
+                Nigerian Context
+              </span>
+            </div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight mb-4">
+              Built for <span className="text-success">Nigerian Hustlers</span>
+            </h2>
+            <p className="text-lg md:text-xl font-bold text-muted-foreground max-w-2xl mx-auto">
+              We understand the unique nature of Nigerian income streams.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {[
+              {
+                icon: MapPin,
+                title: "Location Tracking",
+                description: "Tag income by city (Lagos, Abuja, PH) to understand regional performance.",
+              },
+              {
+                icon: Wallet,
+                title: "Payment Methods",
+                description: "Track income by payment type: Bank Transfer, POS, Cash, USSD, Crypto.",
+              },
+              {
+                icon: Calculator,
+                title: "Tax Estimation",
+                description: "Automatic tax estimate widget based on your total income streams.",
+              },
+              {
+                icon: Users,
+                title: "Ajo Integration",
+                description: "Ajo collections automatically tracked as separate income streams.",
+              },
+            ].map((feature, index) => {
+              const Icon = feature.icon;
+              return (
+                <div key={index} className="p-4 bg-muted/30 border-2 border-border hover:border-success transition-colors">
+                  <div className="w-10 h-10 bg-success/10 border-2 border-success/20 flex items-center justify-center mb-3">
+                    <Icon className="h-5 w-5 text-success" strokeWidth={3} />
+                  </div>
+                  <h3 className="text-sm font-black uppercase mb-1">{feature.title}</h3>
+                  <p className="text-xs font-bold text-muted-foreground">{feature.description}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Financial Health Integration */}
+      <section className="py-16 md:py-24 bg-primary text-primary-foreground">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary-foreground/10 border-2 border-primary-foreground/20 mb-6">
+                <Heart className="h-4 w-4" strokeWidth={3} />
+                <span className="text-xs font-black uppercase tracking-wide">
+                  Financial Health Score
+                </span>
+              </div>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight mb-6">
+                Income Diversification
+                <br />
+                Impacts Your Health Score
+              </h2>
+              <p className="text-lg md:text-xl font-bold opacity-90 mb-8">
+                Your income streams directly contribute to your overall Financial Health Score.
+              </p>
+
+              <div className="space-y-4">
+                <div className="p-4 bg-primary-foreground/10 border-l-4 border-primary-foreground">
+                  <p className="font-black uppercase text-sm mb-1">Income Diversification Score</p>
+                  <p className="text-sm font-bold opacity-80">+25 points per income stream (max 100 for 4+ streams)</p>
+                </div>
+                <div className="p-4 bg-primary-foreground/10 border-l-4 border-primary-foreground">
+                  <p className="font-black uppercase text-sm mb-1">Income Goal Progress</p>
+                  <p className="text-sm font-bold opacity-80">Alerts when you're below 80% of monthly income target</p>
+                </div>
+                <div className="p-4 bg-primary-foreground/10 border-l-4 border-primary-foreground">
+                  <p className="font-black uppercase text-sm mb-1">Concentration Risk Warning</p>
+                  <p className="text-sm font-bold opacity-80">Flags when 80%+ income comes from a single source</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-primary-foreground text-foreground p-6 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,0.3)]">
+              <p className="text-xs font-black uppercase text-muted-foreground mb-6">Health Score Contribution</p>
+
+              <div className="space-y-4">
+                <div className="text-center p-6 border-2 border-border">
+                  <p className="text-xs font-bold text-muted-foreground uppercase mb-2">Your Income Diversification</p>
+                  <p className="text-5xl font-black text-primary">75</p>
+                  <p className="text-sm font-bold text-muted-foreground mt-2">3 Active Streams</p>
+                </div>
+
+                <div className="space-y-2">
+                  {[
+                    { streams: "1 stream", score: "25/100", status: "High Risk" },
+                    { streams: "2 streams", score: "50/100", status: "Moderate" },
+                    { streams: "3 streams", score: "75/100", status: "Good" },
+                    { streams: "4+ streams", score: "100/100", status: "Excellent" },
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-center justify-between p-2 border-l-4 border-primary bg-muted/30">
+                      <span className="text-sm font-bold">{item.streams}</span>
+                      <span className="text-sm font-black">{item.score}</span>
+                      <span className={`text-xs font-black uppercase ${
+                        item.status === "Excellent" ? "text-success" :
+                        item.status === "Good" ? "text-primary" :
+                        item.status === "Moderate" ? "text-orange-500" :
+                        "text-destructive"
+                      }`}>{item.status}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

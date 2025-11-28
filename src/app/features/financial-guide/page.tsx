@@ -32,6 +32,13 @@ import {
   Send,
   Star,
   Quote,
+  FileText,
+  BarChart,
+  RefreshCw,
+  Lock,
+  EyeOff,
+  AlertTriangle,
+  CheckCircle2,
 } from "lucide-react";
 
 // Interactive Chat Demo Component
@@ -448,6 +455,254 @@ export default function FinancialGuidePage() {
                   </div>
                   <h3 className="text-lg font-black uppercase mb-2">{feature.title}</h3>
                   <p className="text-sm font-bold text-white/70">{feature.description}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Transaction Parsing Feature */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-success/10 border-2 border-success/20 mb-6">
+                <FileText className="h-4 w-4 text-success" strokeWidth={3} />
+                <span className="text-xs font-black uppercase tracking-wide">
+                  Smart Transaction Parsing
+                </span>
+              </div>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight mb-6">
+                Type It Like You
+                <br />
+                <span className="text-primary">Talk It</span>
+              </h2>
+              <p className="text-lg md:text-xl font-bold text-muted-foreground mb-8">
+                Add transactions in plain language. Oracle AI understands Nigerian slang, merchants, and payment methods.
+              </p>
+
+              <div className="space-y-4">
+                {[
+                  { input: "\"Bought suya at Obalende for 2k\"", parsed: "₦2,000 → Dining → Expense" },
+                  { input: "\"Sent 50k to my guy for business\"", parsed: "₦50,000 → Transfer → Expense" },
+                  { input: "\"Freelance payment from Tobi 150k\"", parsed: "₦150,000 → Freelance → Income" },
+                  { input: "\"DSTV sub renewed 29,500\"", parsed: "₦29,500 → Subscriptions → Expense" },
+                ].map((example, index) => (
+                  <div key={index} className="p-4 bg-muted/30 border-2 border-border">
+                    <p className="text-sm font-bold text-muted-foreground mb-2">You type:</p>
+                    <p className="text-sm font-black mb-3">{example.input}</p>
+                    <p className="text-sm font-bold text-muted-foreground mb-1">Oracle parses:</p>
+                    <p className="text-sm font-black text-success">{example.parsed}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="bg-card border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+              <p className="text-xs font-black uppercase text-muted-foreground mb-6">Nigerian Merchants Auto-Detected</p>
+
+              <div className="space-y-6">
+                <div>
+                  <p className="text-sm font-black uppercase mb-3 text-primary">Groceries</p>
+                  <div className="flex flex-wrap gap-2">
+                    {["Shoprite", "Spar", "Ebeano", "Justrite"].map((merchant) => (
+                      <span key={merchant} className="px-3 py-1 bg-primary/10 border-2 border-primary/20 text-xs font-black">
+                        {merchant}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <p className="text-sm font-black uppercase mb-3 text-primary">Transport</p>
+                  <div className="flex flex-wrap gap-2">
+                    {["Bolt", "Uber", "Keke", "Okada", "Danfo"].map((merchant) => (
+                      <span key={merchant} className="px-3 py-1 bg-primary/10 border-2 border-primary/20 text-xs font-black">
+                        {merchant}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <p className="text-sm font-black uppercase mb-3 text-primary">Utilities</p>
+                  <div className="flex flex-wrap gap-2">
+                    {["PHCN", "IKEDC", "MTN", "Airtel", "Glo", "9mobile"].map((merchant) => (
+                      <span key={merchant} className="px-3 py-1 bg-primary/10 border-2 border-primary/20 text-xs font-black">
+                        {merchant}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <p className="text-sm font-black uppercase mb-3 text-primary">Entertainment</p>
+                  <div className="flex flex-wrap gap-2">
+                    {["DSTV", "Netflix", "Startimes", "Showmax"].map((merchant) => (
+                      <span key={merchant} className="px-3 py-1 bg-primary/10 border-2 border-primary/20 text-xs font-black">
+                        {merchant}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="p-4 bg-success/10 border-l-4 border-success">
+                  <p className="text-sm font-bold">
+                    <span className="font-black text-success">SLANG SUPPORT: </span>
+                    "Sharp sharp", "I send am", "e don land", "bros pay me" — we understand!
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Usage Tiers */}
+      <section className="py-16 md:py-24 bg-muted/30">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border-2 border-primary/20 mb-6">
+              <BarChart className="h-4 w-4 text-primary" strokeWidth={3} />
+              <span className="text-xs font-black uppercase tracking-wide">
+                Usage Tiers
+              </span>
+            </div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight mb-4">
+              Choose Your <span className="text-primary">Oracle Power</span>
+            </h2>
+            <p className="text-lg md:text-xl font-bold text-muted-foreground max-w-2xl mx-auto">
+              Every plan includes Oracle AI. Higher tiers get more questions per month.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            {[
+              {
+                tier: "FREE",
+                queries: "10",
+                description: "Perfect for occasional guidance",
+                price: "₦0",
+                highlight: false,
+              },
+              {
+                tier: "BASIC",
+                queries: "100",
+                description: "Great for weekly check-ins",
+                price: "₦2,500/mo",
+                highlight: false,
+              },
+              {
+                tier: "PREMIUM",
+                queries: "1,000",
+                description: "Daily financial conversations",
+                price: "₦10,000/mo",
+                highlight: true,
+              },
+              {
+                tier: "UNLIMITED",
+                queries: "∞",
+                description: "No limits, ever",
+                price: "₦25,000/mo",
+                highlight: false,
+              },
+            ].map((plan, index) => (
+              <div
+                key={index}
+                className={`p-6 border-2 ${
+                  plan.highlight
+                    ? "border-primary bg-primary/5 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+                    : "border-border bg-background"
+                }`}
+              >
+                {plan.highlight && (
+                  <div className="inline-block px-2 py-0.5 bg-primary text-primary-foreground text-xs font-black uppercase mb-4">
+                    Popular
+                  </div>
+                )}
+                <p className="text-sm font-black uppercase text-muted-foreground">{plan.tier}</p>
+                <p className="text-4xl font-black my-2">{plan.queries}</p>
+                <p className="text-xs font-bold text-muted-foreground uppercase mb-4">Questions/Month</p>
+                <p className="text-sm font-bold mb-4">{plan.description}</p>
+                <p className="text-lg font-black text-primary">{plan.price}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 p-6 bg-primary/5 border-l-4 border-primary max-w-5xl mx-auto">
+            <div className="flex items-center gap-4">
+              <RefreshCw className="h-8 w-8 text-primary shrink-0" strokeWidth={3} />
+              <div>
+                <p className="font-black uppercase text-sm">Monthly Reset</p>
+                <p className="text-sm font-bold text-muted-foreground">
+                  Your question count resets automatically on the 1st of each month. Unused questions don&apos;t roll over.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Security Features */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-12">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-success/10 border-2 border-success/20 mb-6">
+              <Lock className="h-4 w-4 text-success" strokeWidth={3} />
+              <span className="text-xs font-black uppercase tracking-wide">
+                Security & Safety
+              </span>
+            </div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight mb-4">
+              Your Data Is <span className="text-success">Protected</span>
+            </h2>
+            <p className="text-lg md:text-xl font-bold text-muted-foreground">
+              Oracle AI is read-only and follows strict security protocols.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                icon: EyeOff,
+                title: "Read-Only Access",
+                description: "Oracle can SEE your data to give advice, but can NEVER move money or make transactions.",
+              },
+              {
+                icon: Shield,
+                title: "No Data Selling",
+                description: "Your conversations and financial data are never sold to third parties. Zero exceptions.",
+              },
+              {
+                icon: Clock,
+                title: "10-Second Timeout",
+                description: "API requests timeout after 10 seconds. No hanging connections or delayed responses.",
+              },
+              {
+                icon: AlertTriangle,
+                title: "Input Sanitization",
+                description: "All inputs are cleaned to prevent prompt injection attacks. Max 2,000 characters per message.",
+              },
+              {
+                icon: RefreshCw,
+                title: "Dual AI Failover",
+                description: "Primary AI backed by fallback. If one fails, the other takes over seamlessly.",
+              },
+              {
+                icon: CheckCircle2,
+                title: "Rate Limiting",
+                description: "3 requests/second max. Protects against abuse while ensuring fair access for everyone.",
+              },
+            ].map((feature, index) => {
+              const Icon = feature.icon;
+              return (
+                <div key={index} className="p-6 border-2 border-success/30 bg-success/5">
+                  <div className="w-12 h-12 bg-success/10 border-2 border-success/20 flex items-center justify-center mb-4">
+                    <Icon className="h-6 w-6 text-success" strokeWidth={3} />
+                  </div>
+                  <h3 className="text-lg font-black uppercase mb-2">{feature.title}</h3>
+                  <p className="text-sm font-bold text-muted-foreground">{feature.description}</p>
                 </div>
               );
             })}

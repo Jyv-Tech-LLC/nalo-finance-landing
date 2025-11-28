@@ -1,7 +1,14 @@
-import { Users, Calculator, PieChart, Zap, Target, Bot } from "lucide-react";
+import { Users, Calculator, PieChart, Zap, Target, Bot, Building2, CreditCard, FileText, Shield, Heart, RefreshCw } from "lucide-react";
 import { FeatureCard } from "./feature-card";
 
 const features = [
+  {
+    icon: Building2,
+    title: "Bank Connect",
+    description: "Link your Nigerian bank accounts and sync transactions automatically via Mono. No more manual entry.",
+    href: "https://app.nalofinance.com/register",
+    accentColor: "primary" as const,
+  },
   {
     icon: Users,
     title: "Ajo Groups",
@@ -44,6 +51,41 @@ const features = [
     href: "/features/financial-guide",
     accentColor: "primary" as const,
   },
+  {
+    icon: CreditCard,
+    title: "Loans & Debt",
+    description: "Track all your loans in one place. Visualize payoff progress, payment schedules, and become debt-free faster.",
+    href: "https://app.nalofinance.com/register",
+    accentColor: "success" as const,
+  },
+  {
+    icon: Heart,
+    title: "Financial Health Score",
+    description: "Get a 0-100 score based on 8 components. Know exactly where you stand financially at a glance.",
+    href: "https://app.nalofinance.com/register",
+    accentColor: "primary" as const,
+  },
+  {
+    icon: FileText,
+    title: "Financial Reports",
+    description: "Weekly and monthly reports delivered automatically. Export to PDF or CSV for tax filing and records.",
+    href: "https://app.nalofinance.com/register",
+    accentColor: "success" as const,
+  },
+  {
+    icon: RefreshCw,
+    title: "Exchange Rates",
+    description: "Live NGN exchange rates and currency converter. Track domiciliary accounts in USD, EUR, and GBP.",
+    href: "https://app.nalofinance.com/register",
+    accentColor: "primary" as const,
+  },
+  {
+    icon: Shield,
+    title: "Bank-Level Security",
+    description: "2FA authentication, IP whitelisting, session management, and Google/Apple sign-in. Your data is sacred.",
+    href: "https://app.nalofinance.com/register",
+    accentColor: "success" as const,
+  },
 ];
 
 export function FeatureGrid() {
@@ -60,7 +102,7 @@ export function FeatureGrid() {
             <div className="w-1 h-8 bg-primary" />
           </div>
           <p className="text-lg md:text-xl font-bold text-muted-foreground mt-4 max-w-2xl mx-auto">
-            From traditional Ajo to modern tax planning, we've got you covered
+            From bank sync to tax planning, Ajo groups to debt tracking—we've got you covered
           </p>
         </div>
 

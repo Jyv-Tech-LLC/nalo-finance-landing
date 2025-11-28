@@ -34,6 +34,10 @@ import {
   Quote,
   X,
   Brain,
+  Send,
+  Link2,
+  Search,
+  Gavel,
 } from "lucide-react";
 
 const faqs = [
@@ -539,6 +543,94 @@ export default function AjoGroupsPage() {
                 </div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* Advanced Features */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border-2 border-primary/20 mb-6">
+              <Sparkles className="h-4 w-4 text-primary" strokeWidth={3} />
+              <span className="text-xs font-black uppercase tracking-wide">
+                Advanced Features
+              </span>
+            </div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight mb-4">
+              Power Features for Serious Groups
+            </h2>
+            <p className="text-lg md:text-xl font-bold text-muted-foreground max-w-2xl mx-auto">
+              Dispute resolution, instant notifications, public discovery, and more.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {[
+              {
+                icon: Gavel,
+                title: "Dispute Resolution",
+                description: "Built-in system to handle payment disputes with evidence uploads, member voting, and admin mediation. No more 'he said, she said' arguments.",
+                highlight: "Fair & Transparent",
+              },
+              {
+                icon: Send,
+                title: "Telegram Notifications",
+                description: "Get instant alerts on Telegram for payments, collections, reminders, and group updates. Connect your Telegram bot in 2 clicks.",
+                highlight: "Instant Alerts",
+              },
+              {
+                icon: Search,
+                title: "Public Group Discovery",
+                description: "Find and join public Ajo groups in your area or interest category. Browse verified groups with high trust scores and join safely.",
+                highlight: "Find Groups",
+              },
+              {
+                icon: Link2,
+                title: "Shareable Join Links",
+                description: "Generate secure invite links to share via WhatsApp, SMS, or email. Set link expiry, member limits, and minimum trust score requirements.",
+                highlight: "Easy Invites",
+              },
+            ].map((feature, index) => {
+              const Icon = feature.icon;
+              return (
+                <Card key={index} className="border-2 border-border bg-background hover:border-primary transition-colors">
+                  <CardContent className="p-6">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="w-12 h-12 bg-primary/10 border-2 border-primary/20 flex items-center justify-center">
+                        <Icon className="h-6 w-6 text-primary" strokeWidth={3} />
+                      </div>
+                      <span className="px-2 py-1 bg-success/10 text-xs font-black text-success uppercase">
+                        {feature.highlight}
+                      </span>
+                    </div>
+                    <h3 className="text-base font-black uppercase mb-2">{feature.title}</h3>
+                    <p className="text-sm font-bold text-muted-foreground">{feature.description}</p>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+
+          {/* Telegram Integration Highlight */}
+          <div className="mt-12 max-w-4xl mx-auto p-6 bg-primary/5 border-l-4 border-primary">
+            <div className="flex items-start gap-4">
+              <Send className="h-6 w-6 text-primary shrink-0" strokeWidth={3} />
+              <div>
+                <h4 className="text-lg font-black uppercase mb-2">Telegram Bot Integration</h4>
+                <p className="text-sm font-bold text-muted-foreground mb-4">
+                  Connect your Ajo group to Telegram and receive instant notifications for:
+                </p>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                  {["Payment received", "Payment due", "Collection ready", "New member joined", "Dispute opened", "Trust score change", "Group milestone", "Admin updates"].map((item, index) => (
+                    <div key={index} className="flex items-center gap-2">
+                      <CheckCircle className="h-4 w-4 text-success shrink-0" strokeWidth={3} />
+                      <span className="text-xs font-bold">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

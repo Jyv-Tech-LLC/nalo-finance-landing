@@ -18,6 +18,10 @@ import {
   Home,
   Zap,
   Info,
+  ArrowUpCircle,
+  BarChart3,
+  PiggyBank,
+  TrendingDown,
 } from "lucide-react";
 
 const problems = [
@@ -443,6 +447,91 @@ export default function BudgetingPage() {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Smart Savings Features */}
+        <section className="py-16 md:py-24 bg-primary text-primary-foreground">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 border-2 border-white/20 mb-6">
+                <PiggyBank className="h-4 w-4" strokeWidth={3} />
+                <span className="text-xs font-black uppercase tracking-wide">
+                  Save More Effortlessly
+                </span>
+              </div>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight mb-4">
+                Smart Savings Features
+              </h2>
+              <p className="text-lg md:text-xl font-bold opacity-90 max-w-2xl mx-auto">
+                Automate your savings and watch your money grow without thinking about it
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+              {[
+                {
+                  icon: ArrowUpCircle,
+                  title: "Round-Up Savings",
+                  description: "Round every transaction to the nearest ₦100 or ₦1,000 and automatically save the difference",
+                  example: "Spend ₦2,450 → Round to ₦2,500 → Save ₦50 automatically",
+                  impact: "Average: ₦15,000/month saved passively",
+                },
+                {
+                  icon: BarChart3,
+                  title: "Balance Trend Analysis",
+                  description: "30-day charts showing your balance patterns, spending velocity, and saving trajectory",
+                  example: "See exactly when you spend most (weekends? month-end?)",
+                  impact: "Spot leaks before they drain you",
+                },
+                {
+                  icon: TrendingDown,
+                  title: "Spending Velocity Alerts",
+                  description: "AI monitors your spending speed and warns if you're on track to exceed budget",
+                  example: "'At current rate, you'll overspend Food by ₦8k before month-end'",
+                  impact: "Intervene early, not after the damage",
+                },
+              ].map((feature, index) => {
+                const Icon = feature.icon;
+                return (
+                  <div key={index} className="bg-white/10 border-2 border-white/20 p-6 space-y-4">
+                    <div className="w-12 h-12 bg-white/10 border-2 border-white/20 flex items-center justify-center">
+                      <Icon className="h-6 w-6" strokeWidth={3} />
+                    </div>
+                    <h3 className="text-lg font-black uppercase">{feature.title}</h3>
+                    <p className="text-sm font-bold opacity-80">{feature.description}</p>
+                    <div className="p-3 bg-white/5 border-l-4 border-white/50">
+                      <p className="text-xs font-black uppercase opacity-70 mb-1">Example</p>
+                      <p className="text-sm font-bold">{feature.example}</p>
+                    </div>
+                    <p className="text-xs font-black uppercase text-success">{feature.impact}</p>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Round-Up Savings Detail */}
+            <div className="mt-12 max-w-4xl mx-auto p-6 bg-white/10 border-2 border-white/20">
+              <h3 className="text-xl font-black uppercase mb-4 text-center">Round-Up Savings in Action</h3>
+              <div className="grid md:grid-cols-4 gap-4">
+                {[
+                  { transaction: "Lunch", spent: "₦2,750", rounded: "₦3,000", saved: "₦250" },
+                  { transaction: "Uber", spent: "₦1,420", rounded: "₦1,500", saved: "₦80" },
+                  { transaction: "Netflix", spent: "₦4,900", rounded: "₦5,000", saved: "₦100" },
+                  { transaction: "Shopping", spent: "₦8,350", rounded: "₦9,000", saved: "₦650" },
+                ].map((item, index) => (
+                  <div key={index} className="p-4 bg-white/5 text-center">
+                    <p className="text-xs font-bold opacity-70 uppercase mb-1">{item.transaction}</p>
+                    <p className="text-sm font-bold line-through opacity-50">{item.spent}</p>
+                    <p className="text-base font-black">{item.rounded}</p>
+                    <p className="text-sm font-black text-success mt-2">+{item.saved}</p>
+                  </div>
+                ))}
+              </div>
+              <p className="text-center text-sm font-bold opacity-80 mt-4">
+                Just 4 transactions = ₦1,080 saved automatically. Imagine 30+ transactions per month!
+              </p>
             </div>
           </div>
         </section>

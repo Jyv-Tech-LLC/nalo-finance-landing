@@ -489,8 +489,107 @@ export default function TaxCenterPage() {
           </div>
         </section>
 
-        {/* Tax Optimization Tips */}
+        {/* Tax Filing Workflow */}
         <section className="py-16 md:py-24 bg-background">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border-2 border-primary/20 mb-6">
+                <FileText className="h-4 w-4 text-primary" strokeWidth={3} />
+                <span className="text-xs font-black uppercase tracking-wide">
+                  Seamless Filing
+                </span>
+              </div>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight mb-4">
+                Tax Filing Made Simple
+              </h2>
+              <p className="text-lg md:text-xl font-bold text-muted-foreground max-w-2xl mx-auto">
+                From draft to submission, we guide you through every step of the filing process
+              </p>
+            </div>
+
+            {/* Filing Workflow Steps */}
+            <div className="max-w-5xl mx-auto">
+              <div className="grid md:grid-cols-4 gap-6">
+                {[
+                  { step: 1, title: "Draft", desc: "Auto-generate your return from tracked income and expenses", status: "Start here" },
+                  { step: 2, title: "Review", desc: "Check calculations, add deductions, verify all amounts", status: "AI-assisted" },
+                  { step: 3, title: "Submit", desc: "File directly with FIRS/SIRS or export for manual submission", status: "One-click" },
+                  { step: 4, title: "Accepted", desc: "Track status, download receipts, store for records", status: "Complete" },
+                ].map((item) => (
+                  <div key={item.step} className="relative">
+                    <div className="bg-card border-2 border-border p-6 h-full">
+                      <div className="w-12 h-12 bg-primary flex items-center justify-center font-black text-xl text-primary-foreground mb-4">
+                        {item.step}
+                      </div>
+                      <h3 className="text-lg font-black uppercase mb-2">{item.title}</h3>
+                      <p className="text-sm font-bold text-muted-foreground mb-3">{item.desc}</p>
+                      <span className="px-3 py-1 bg-success/10 border border-success/30 text-xs font-black text-success">
+                        {item.status}
+                      </span>
+                    </div>
+                    {item.step < 4 && (
+                      <div className="hidden md:block absolute top-1/2 -right-3 transform -translate-y-1/2">
+                        <ArrowRight className="h-6 w-6 text-primary" strokeWidth={3} />
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Deductions Tracking */}
+            <div className="mt-16 max-w-5xl mx-auto">
+              <h3 className="text-2xl font-black uppercase text-center mb-8">Track Deductions Year-Round</h3>
+              <div className="grid md:grid-cols-3 gap-6">
+                {[
+                  { icon: Receipt, title: "Rent Receipts", desc: "Upload tenancy agreements and payment proofs for 20% rent relief (max ₦500k)" },
+                  { icon: Shield, title: "Pension & NHIS", desc: "Auto-track 8% pension and 5% NHIS contributions from your payslips" },
+                  { icon: FileText, title: "WHT Credits", desc: "Track all withholding tax deducted by clients to offset against final tax" },
+                ].map((item, index) => {
+                  const Icon = item.icon;
+                  return (
+                    <div key={index} className="bg-muted/30 border-2 border-border p-6">
+                      <div className="w-12 h-12 bg-primary/10 border-2 border-primary/20 flex items-center justify-center mb-4">
+                        <Icon className="h-6 w-6 text-primary" strokeWidth={3} />
+                      </div>
+                      <h4 className="text-base font-black uppercase mb-2">{item.title}</h4>
+                      <p className="text-sm font-bold text-muted-foreground">{item.desc}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Tax Reminders */}
+            <div className="mt-16 max-w-4xl mx-auto p-6 bg-warning/5 border-l-4 border-warning">
+              <div className="flex items-start gap-4">
+                <Calendar className="h-6 w-6 text-warning shrink-0" strokeWidth={3} />
+                <div>
+                  <h4 className="text-lg font-black uppercase mb-3">Never Miss a Deadline</h4>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    {[
+                      { deadline: "March 31", desc: "Annual PIT filing deadline" },
+                      { deadline: "10th Monthly", desc: "PAYE remittance" },
+                      { deadline: "21st Monthly", desc: "WHT & VAT remittance" },
+                      { deadline: "6 months", desc: "After year-end for CIT" },
+                    ].map((item, index) => (
+                      <div key={index} className="flex items-center gap-3">
+                        <span className="px-2 py-1 bg-warning/20 text-xs font-black">{item.deadline}</span>
+                        <span className="text-sm font-bold text-muted-foreground">{item.desc}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="text-sm font-bold text-muted-foreground mt-4">
+                    Nalo sends automated reminders 7 days before, 3 days before, and on the due date. Never pay late fees again.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Tax Optimization Tips */}
+        <section className="py-16 md:py-24 bg-muted/30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-success/10 border-2 border-success/20 mb-6">
