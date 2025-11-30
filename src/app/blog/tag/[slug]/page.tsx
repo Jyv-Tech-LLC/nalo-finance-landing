@@ -47,7 +47,12 @@ export default async function TagPage({ params, searchParams }: TagPageProps) {
   }
 
   // Fetch posts for this tag
-  const postsData = await getPosts({ page, limit: 9, tagSlug: slug });
+  let postsData;
+  try {
+    postsData = await getPosts({ page, limit: 9, tagSlug: slug });
+  } catch {
+    notFound();
+  }
   const { data: posts, pagination } = postsData;
 
   // Get popular posts for sidebar

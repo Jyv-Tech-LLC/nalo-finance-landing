@@ -49,7 +49,12 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
   }
 
   // Fetch posts for this category
-  const postsData = await getPosts({ page, limit: 9, categorySlug: slug });
+  let postsData;
+  try {
+    postsData = await getPosts({ page, limit: 9, categorySlug: slug });
+  } catch {
+    notFound();
+  }
   const { data: posts, pagination } = postsData;
 
   // Get popular posts for sidebar
